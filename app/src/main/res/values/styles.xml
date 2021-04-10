@@ -49,4 +49,12 @@
         <item name="android:textFontWeight">400</item>
         <item name="android:textColor">@color/orange</item>
     </style>
+
+
+    <style name="SpinnerTheme" parent="android:Widget.Spinner">
+        <item name="android:background">@drawable/spinner_background</item>
+
+    </style>
+
+
 </resources>
