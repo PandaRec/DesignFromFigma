@@ -9,7 +9,7 @@
     >
 
     <ImageView
-        android:id="@+id/icon_geopoint"
+        android:id="@+id/ic_geopoint"
         android:layout_width="12dp"
         android:layout_height="15.31dp"
         android:src="@drawable/ic_geopoint"
@@ -31,6 +31,7 @@
         android:clickable="false"
         />
     <ImageView
+        android:id="@+id/ic_filter"
         android:layout_width="11dp"
         android:layout_height="13dp"
         android:src="@drawable/ic_filter"
@@ -39,5 +40,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="35dp"
         />
+    <TextView
+        android:id="@+id/label_select_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/spinnerGeo"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Select Category"
+        style="@style/font_700_dark_blue"
+        android:textSize="25sp"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="17dp"/>
+    <TextView
+        android:id="@+id/label_view_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="view all"
+        app:layout_constraintTop_toTopOf="@id/label_select_category"
+        app:layout_constraintBottom_toBottomOf="@id/label_select_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/font_400_orange"
+        android:textSize="15sp"
+        android:layout_marginEnd="33dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
