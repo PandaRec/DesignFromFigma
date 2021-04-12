@@ -1,17 +1,20 @@
 package com.example.designfromfigma2.ui.home
 
 import android.graphics.PorterDuff
+import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.designfromfigma2.R
 import com.example.designfromfigma2.adapters.CategoryAdapter
 import com.example.designfromfigma2.pojo.CategoryItemMenu
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() {
