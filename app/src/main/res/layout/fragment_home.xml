@@ -4,134 +4,148 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment"
-    android:background="@color/background">
+    android:background="@color/background"
+    tools:context=".ui.home.HomeFragment">
 
     <ImageView
         android:id="@+id/ic_geopoint"
         android:layout_width="12dp"
         android:layout_height="15.31dp"
+        android:layout_marginEnd="15.12dp"
         android:src="@drawable/ic_geopoint"
-        app:layout_constraintTop_toTopOf="@id/spinnerGeo"
         app:layout_constraintBottom_toBottomOf="@id/spinnerGeo"
         app:layout_constraintEnd_toStartOf="@id/spinnerGeo"
-        android:layout_marginEnd="15.12dp"
+        app:layout_constraintTop_toTopOf="@id/spinnerGeo"
 
         />
+
     <Spinner
         android:id="@+id/spinnerGeo"
+        style="@style/SpinnerTheme"
         android:layout_width="140dp"
         android:layout_height="19dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:entries="@array/testArrayForSpinner"
-        style="@style/SpinnerTheme"
-        android:clickable="false"
         android:layout_marginTop="21dp"
-        />
+        android:clickable="false"
+        android:entries="@array/testArrayForSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/ic_filter"
         android:layout_width="11dp"
         android:layout_height="13dp"
+        android:layout_marginEnd="35dp"
         android:src="@drawable/ic_filter"
-        app:layout_constraintTop_toTopOf="@id/spinnerGeo"
         app:layout_constraintBottom_toBottomOf="@id/spinnerGeo"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="35dp"
-        />
+        app:layout_constraintTop_toTopOf="@id/spinnerGeo" />
+
     <TextView
         android:id="@+id/label_select_category"
+        style="@style/font_700_dark_blue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/spinnerGeo"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Select Category"
-        style="@style/font_700_dark_blue"
-        android:textSize="25sp"
-        android:layout_marginTop="18dp"
         android:layout_marginStart="17dp"
+        android:layout_marginTop="18dp"
         android:fontFamily="@font/mark_pro"
-        />
+        android:text="Select Category"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerGeo" />
+
     <TextView
         android:id="@+id/label_view_all"
+        style="@style/font_400_orange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="view all"
-        app:layout_constraintTop_toTopOf="@id/label_select_category"
-        app:layout_constraintBottom_toBottomOf="@id/label_select_category"
-        app:layout_constraintEnd_toEndOf="parent"
-        style="@style/font_400_orange"
-        android:textSize="15sp"
         android:layout_marginEnd="33dp"
         android:fontFamily="@font/mark_pro"
-        />
+        android:text="view all"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/label_select_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/label_select_category" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCategory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/label_select_category"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"
         android:layout_marginStart="27dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginTop="24dp"
         android:orientation="horizontal"
-        tools:listitem="@layout/category_item"
-        />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_select_category"
+        tools:listitem="@layout/category_item" />
 
-        <SearchView
-            android:id="@+id/searchView"
-            android:layout_width="300dp"
-            android:layout_height="34dp"
-            android:queryHint="Search"
-            android:iconifiedByDefault="false"
-            app:layout_constraintTop_toBottomOf="@id/recyclerViewCategory"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/searchview_rounded"
-            android:queryBackground="@android:color/transparent"
-            android:layout_centerHorizontal="true"
-            android:padding="1dp"
-            android:searchIcon="@drawable/ic_search"
-            android:closeIcon="@drawable/ic_search"
-            android:layout_marginTop="35dp"
-            android:fontFamily="@font/mark_pro"
-            android:theme="@style/SearchViewStyle"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="82dp"
-            />
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="300dp"
+        android:layout_height="34dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="82dp"
+        android:background="@drawable/searchview_rounded"
+        android:closeIcon="@drawable/ic_search"
+        android:fontFamily="@font/mark_pro"
+        android:iconifiedByDefault="false"
+        android:padding="1dp"
+        android:queryBackground="@android:color/transparent"
+        android:queryHint="Search"
+        android:searchIcon="@drawable/ic_search"
+        android:theme="@style/SearchViewStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewCategory" />
 
     <ImageView
         android:id="@+id/imageViewQRCircle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_ellipse_orange"
-        app:layout_constraintTop_toTopOf="@id/searchView"
-        app:layout_constraintBottom_toBottomOf="@id/searchView"
-        app:layout_constraintStart_toEndOf="@id/searchView"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="11dp"
-        android:layout_marginEnd="37dp"/>
+        android:layout_marginEnd="37dp"
+        android:src="@drawable/ic_ellipse_orange"
+        app:layout_constraintBottom_toBottomOf="@id/searchView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/searchView"
+        app:layout_constraintTop_toTopOf="@id/searchView" />
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_qr"
-        app:layout_constraintTop_toTopOf="@id/imageViewQRCircle"
         app:layout_constraintBottom_toBottomOf="@id/imageViewQRCircle"
-        app:layout_constraintStart_toStartOf="@id/imageViewQRCircle"
         app:layout_constraintEnd_toEndOf="@id/imageViewQRCircle"
-        />
+        app:layout_constraintStart_toStartOf="@id/imageViewQRCircle"
+        app:layout_constraintTop_toTopOf="@id/imageViewQRCircle" />
 
+    <TextView
+        android:id="@+id/labelHotSales"
+        style="@style/font_700_dark_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/mark_pro"
+        android:text="Hot sales"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchView" />
 
-
-
-
-
-
-
-
+    <TextView
+        style="@style/font_400_orange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="33dp"
+        android:fontFamily="@font/mark_pro"
+        android:text="see more"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/labelHotSales"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/labelHotSales" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
