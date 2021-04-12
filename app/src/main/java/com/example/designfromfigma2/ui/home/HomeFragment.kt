@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.designfromfigma2.R
 import com.example.designfromfigma2.adapters.CategoryAdapter
+import com.example.designfromfigma2.adapters.HotSaleAdapter
 import com.example.designfromfigma2.pojo.CategoryItemMenu
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
@@ -44,26 +45,13 @@ class HomeFragment : Fragment() {
                 val tempList = adapterRecyclerView.listOfIdOfCategories
                 tempList[position].isPressed = true
                 adapterRecyclerView.listOfIdOfCategories = tempList
-                //val tempList = adapterRecyclerView.listOfIdOfCategories
-                //tempList[position].title = "lol"
-                //adapterRecyclerView.listOfIdOfCategories = list
-               // var a = context?.let { it.resources.getColor(R.color.orange) }
-
-                //if (a != null) {
-                    //holder.imageView.setBackgroundColor(a)
-//                val tempList = adapterRecyclerView.listOfIdOfCategories
-//                adapterRecyclerView.listOfIdOfCategories = tempList
-//                        holder.imageView.setColorFilter(getResources().getColor(android.R.color.black))
-
-                    //holder.imageView.setColorFilter(getResources().getColor(android.R.color.black), PorterDuff.Mode.SRC_IN);
-
-               // }
-
-                Log.d("TAG","pressed")
-
-
             }
         }
+
+        val recyclerViewHotSale = root.recyclerViewHotSale
+        val adapterHotSale = HotSaleAdapter()
+        adapterHotSale.someList = listOf(R.drawable.hot_sale_new_2)
+        recyclerViewHotSale.adapter = adapterHotSale
 
         return root
     }

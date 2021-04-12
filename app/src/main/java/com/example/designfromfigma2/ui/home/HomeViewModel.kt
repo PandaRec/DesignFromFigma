@@ -22,6 +22,9 @@ class HomeViewModel : ViewModel() {
         item = CategoryItemMenu(R.drawable.ic_books, "Books",false)
         resultList.add(item)
 
+        item = CategoryItemMenu(R.drawable.ic_books, "Books",false)
+        resultList.add(item)
+
         return resultList
 
     }

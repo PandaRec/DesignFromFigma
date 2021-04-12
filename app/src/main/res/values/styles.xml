@@ -56,6 +56,23 @@
         <item name="android:textColor">@color/gray_for_search_view</item>
     </style>
 
+    <style name="font_700_white">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textFontWeight">700</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="font_400_white">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+
+
+
+
 
     <style name="SpinnerTheme" parent="android:Widget.Spinner">
         <item name="android:background">@drawable/spinner_background</item>
@@ -66,6 +83,8 @@
         <item name="android:textSize">12sp</item>
         <item name="fontFamily">@font/mark_pro</item>
     </style>
+
+
 
 
 </resources>
