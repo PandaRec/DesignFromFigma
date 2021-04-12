@@ -161,6 +161,30 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
         />
+    <TextView
+        android:id="@+id/labelBestSeller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Best Seller"
+        android:fontFamily="@font/mark_pro"
+        style="@style/font_700_dark_blue"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewHotSale"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mark_pro"
+        style="@style/font_400_orange"
+        android:textSize="15sp"
+        android:text="see more"
+        app:layout_constraintTop_toTopOf="@id/labelBestSeller"
+        app:layout_constraintBottom_toBottomOf="@id/labelBestSeller"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="27dp"/>
 
 
 
