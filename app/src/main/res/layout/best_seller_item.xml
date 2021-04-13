@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background">
+
+
+
+   <View
+       android:id="@+id/mainViewLeft"
+       android:layout_width="186dp"
+       android:layout_height="227dp"
+      android:background="@drawable/rounded_image_view"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toStartOf="parent"/>
+
+   <ImageView
+       android:id="@+id/imageViewLeft"
+      android:layout_marginTop="5dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+      android:src="@drawable/samsung_galaxy_s20_ultra_1"
+      app:layout_constraintTop_toTopOf="@id/mainViewLeft"
+      app:layout_constraintStart_toStartOf="@id/mainViewLeft"
+      app:layout_constraintEnd_toEndOf="@id/mainViewLeft"/>
+   <TextView
+       android:id="@+id/textViewPrice"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+      android:text="$1,047"
+      app:layout_constraintTop_toBottomOf="@id/imageViewLeft"
+      app:layout_constraintStart_toStartOf="@id/mainViewLeft"
+      android:layout_marginStart="21dp"
+      android:layout_marginTop="2dp"
+      android:fontFamily="@font/mark_pro"
+      style="@style/font_700_dark_blue"
+      android:textSize="16sp"/>
+
+   <TextView
+       android:id="@+id/textViewOldPrice"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+      android:text="$1,500"
+      app:layout_constraintTop_toTopOf="@id/textViewPrice"
+      app:layout_constraintBottom_toBottomOf="@id/textViewPrice"
+      app:layout_constraintStart_toEndOf="@id/textViewPrice"
+      android:layout_marginStart="7dp"
+       android:fontFamily="@font/mark_pro"
+       style="@style/font_500_gray_old_price"
+       android:textSize="13sp"/>
+
+   <TextView
+      android:id="@+id/textViewFullTitle"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/textViewPrice"
+      app:layout_constraintStart_toStartOf="@id/mainViewLeft"
+      android:text="Samsung Galaxy s20 Ultra"
+      android:fontFamily="@font/mark_pro"
+      style="@style/font_400_dark_blue"
+      android:textSize="10sp"
+      android:layout_marginStart="21dp"
+      android:layout_marginTop="5dp"/>
+
+   <View
+       android:id="@+id/viewLikeEllipse"
+       android:layout_width="25dp"
+       android:layout_height="25dp"
+      android:background="@drawable/ic_ellipse"
+      app:layout_constraintTop_toTopOf="@id/mainViewLeft"
+      app:layout_constraintEnd_toEndOf="@id/mainViewLeft"
+      android:layout_marginTop="11dp"
+      android:layout_marginEnd="12dp"/>
+   <ImageView
+       android:layout_width="11dp"
+       android:layout_height="10dp"
+      android:src="@drawable/ic_menu_not_like"
+      app:layout_constraintTop_toTopOf="@id/viewLikeEllipse"
+      app:layout_constraintBottom_toBottomOf="@id/viewLikeEllipse"
+      app:layout_constraintStart_toStartOf="@id/viewLikeEllipse"
+      app:layout_constraintEnd_toEndOf="@id/viewLikeEllipse"/>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
