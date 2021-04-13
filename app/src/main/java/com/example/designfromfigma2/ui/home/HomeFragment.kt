@@ -59,10 +59,18 @@ class HomeFragment : Fragment() {
 
         val recyclerViewBestSaller = root.recyclerViewBestSeller
         val adapterBestSeller = BestSellerAdapter()
-        adapterBestSeller.someList = listOf(R.drawable.samsung_galaxy_s20_ultra_1,R.drawable.samsung_galaxy_s20_ultra_1,R.drawable.samsung_galaxy_s20_ultra_1)
+        adapterBestSeller.someList = homeViewModel.getTestValuesToBestSeller()
         recyclerViewBestSaller.layoutManager = GridLayoutManager(context,2)
 
         recyclerViewBestSaller.adapter = adapterBestSeller
+
+        adapterBestSeller.onLikeClickListener = object : BestSellerAdapter.OnLikeClickListener{
+            override fun onLikeClick(position: Int) {
+                val tempList = adapterBestSeller.someList
+                tempList[position].isLiked = !tempList[position].isLiked
+                adapterBestSeller.someList = tempList
+            }
+        }
 
         return root
     }
