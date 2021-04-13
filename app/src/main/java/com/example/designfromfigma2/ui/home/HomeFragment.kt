@@ -8,10 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.GridLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.designfromfigma2.R
+import com.example.designfromfigma2.adapters.BestSellerAdapter
 import com.example.designfromfigma2.adapters.CategoryAdapter
 import com.example.designfromfigma2.adapters.HotSaleAdapter
 import com.example.designfromfigma2.pojo.CategoryItemMenu
@@ -52,6 +55,14 @@ class HomeFragment : Fragment() {
         val adapterHotSale = HotSaleAdapter()
         adapterHotSale.someList = listOf(R.drawable.hot_sale_new_2)
         recyclerViewHotSale.adapter = adapterHotSale
+
+
+        val recyclerViewBestSaller = root.recyclerViewBestSeller
+        val adapterBestSeller = BestSellerAdapter()
+        adapterBestSeller.someList = listOf(R.drawable.samsung_galaxy_s20_ultra_1,R.drawable.samsung_galaxy_s20_ultra_1,R.drawable.samsung_galaxy_s20_ultra_1)
+        recyclerViewBestSaller.layoutManager = GridLayoutManager(context,2)
+
+        recyclerViewBestSaller.adapter = adapterBestSeller
 
         return root
     }

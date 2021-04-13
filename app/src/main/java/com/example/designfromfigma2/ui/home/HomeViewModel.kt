@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.designfromfigma2.R
+import com.example.designfromfigma2.pojo.BestSellerMenu
 import com.example.designfromfigma2.pojo.CategoryItemMenu
 
 class HomeViewModel : ViewModel() {
@@ -27,6 +28,24 @@ class HomeViewModel : ViewModel() {
 
         return resultList
 
+    }
+
+    fun getTestValuesToBestSeller(): List<BestSellerMenu>{
+    val resultList = mutableListOf<BestSellerMenu>()
+
+        var item = BestSellerMenu("\$1,047","\$1,500","Samsung Galaxy s20 Ultra",R.drawable.samsung_galaxy_s20_ultra_1,false)
+        resultList.add(item)
+
+        item = BestSellerMenu("\$300","\$400","Xiaomi Mi 10 Pro",R.drawable.xiaomi,true)
+        resultList.add(item)
+
+        item = BestSellerMenu("\$1,047","\$1,500","Samsung Note 20 Ultra",R.drawable.samsung_note_20,false)
+        resultList.add(item)
+
+        item = BestSellerMenu("\$300","\$400","Motorola One Edge",R.drawable.motorola,false)
+        resultList.add(item)
+
+        return resultList
     }
 
 
