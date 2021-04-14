@@ -12,11 +12,8 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/background</item>
         <!-- Customize your theme here. -->
-<!--        <item name="android:spinnerItemStyle">@style/mySpinnerItemSelectedStyle</item>-->
 
     </style>
 
-<!--    <style name="mySpinnerItemSelectedStyle" parent="@android:style/Widget.Holo.TextView.SpinnerItem">-->
-<!--    </style>-->
 
 </resources>

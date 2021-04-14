@@ -16,6 +16,7 @@
     <string name="backet">backet</string>
     <string name="favorite">favorite</string>
     <string name="person">person</string>
+    <string name="explorer">Explorer</string>
 
     <string-array name="testArrayForSpinner">
         <item>Zihuatanejo, Gro</item>
