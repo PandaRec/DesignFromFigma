@@ -3,6 +3,20 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="label_select_category">Select Category</string>
+    <string name="label_view_all">view all</string>
+    <string name="label_hot_sales">Hot sales</string>
+    <string name="label_see_more">see more</string>
+    <string name="label_best_seller">Best Seller</string>
+    <string name="label_see_more">see more</string>
+    <string name="label_new">New</string>
+    <string name="label_iphone_12">Iphone 12</string>
+    <string name="label_s_per_mega_r_pido">Súper. Mega. Rápido.</string>
+    <string name="label_buy_now">Buy now!</string>
+    <string name="explore">explore</string>
+    <string name="backet">backet</string>
+    <string name="favorite">favorite</string>
+    <string name="person">person</string>
 
     <string-array name="testArrayForSpinner">
         <item>Zihuatanejo, Gro</item>
