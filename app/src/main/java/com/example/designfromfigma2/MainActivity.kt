@@ -1,6 +1,7 @@
 package com.example.designfromfigma2
 
 import android.content.res.Resources
+import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
