@@ -39,17 +39,20 @@ class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewH
         val imageViewLike = itemView.imageViewLike
 
         fun insertToUI(bestSeller: BestSellerMenu){
-            imageViewMain.setImageDrawable(ResourcesCompat.getDrawable(itemView.context.resources,bestSeller.imageId,null))
-            textViewTitle.text = bestSeller.fullTitle
-            textViewPrice.text = bestSeller.price
-            textViewOldPrice.text = bestSeller.oldPrice
+            imageViewMain.setImageResource(bestSeller.imageId)
+            //imageViewMain.setImageDrawable(ResourcesCompat.getDrawable(itemView.context.resources,bestSeller.imageId,null))
+            textViewTitle.setText(bestSeller.fullTitle)
+            textViewPrice.setText( bestSeller.price)
+            textViewOldPrice.setText(bestSeller.oldPrice)
             textViewOldPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
 
             if(bestSeller.isLiked){
-                imageViewLike.setImageDrawable(ResourcesCompat.getDrawable(itemView.context.resources,R.drawable.ic_like,null))
+                imageViewLike.setImageResource(R.drawable.ic_like)
+                //imageViewLike.setImageDrawable(ResourcesCompat.getDrawable(itemView.context.resources,R.drawable.ic_like,null))
 
             }else{
-                imageViewLike.setImageDrawable(ResourcesCompat.getDrawable(itemView.context.resources,R.drawable.ic_menu_not_like,null))
+                imageViewLike.setImageResource(R.drawable.ic_menu_not_like)
+                //imageViewLike.setImageDrawable(ResourcesCompat.getDrawable(itemView.context.resources,R.drawable.ic_menu_not_like,null))
 
             }
         }

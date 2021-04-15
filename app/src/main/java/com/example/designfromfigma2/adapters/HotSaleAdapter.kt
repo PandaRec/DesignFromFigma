@@ -31,7 +31,8 @@ class HotSaleAdapter: RecyclerView.Adapter<HotSaleAdapter.HotSaleViewHolder>() {
         val imageViewMain = itemView.mainImage
 
         fun insertToUI(hotSaleItemImgId:Int){
-            imageViewMain.setImageDrawable(getDrawable(itemView.context.resources,hotSaleItemImgId,null))
+            imageViewMain.setImageResource(hotSaleItemImgId)
+            //imageViewMain.setImageDrawable(getDrawable(itemView.context.resources,hotSaleItemImgId,null))
 
         }
     }

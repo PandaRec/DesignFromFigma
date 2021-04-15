@@ -17,6 +17,24 @@
     <string name="favorite">favorite</string>
     <string name="person">person</string>
     <string name="explorer">Explorer</string>
+    <string name="samsung_galaxy_price">$1,047</string>
+    <string name="samsung_galaxy_old_price">$1,500</string>
+    <string name="samsung_galaxy_title">Samsung Galaxy s20 Ultra</string>
+    <string name="xiaomi_price">$300</string>
+    <string name="xiaomi_old_price">$400</string>
+    <string name="xiaomi_title">Xiaomi Mi 10 Pro</string>
+    <string name="samsung_note_price">$1,047</string>
+    <string name="samsung_note_old_price">$1,500</string>
+    <string name="samsung_note_title">Samsung Note 20 Ultra</string>
+    <string name="motorola_price">$300</string>
+    <string name="motorola_old_price">$400</string>
+    <string name="motorola_title">Motorola One Edge</string>
+    <string name="phones">Phones</string>
+    <string name="computer">Computer</string>
+    <string name="health">Health</string>
+    <string name="books">Books</string>
+
+
 
     <string-array name="testArrayForSpinner">
         <item>Zihuatanejo, Gro</item>

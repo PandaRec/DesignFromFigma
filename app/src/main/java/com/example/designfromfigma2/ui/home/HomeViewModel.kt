@@ -11,19 +11,19 @@ class HomeViewModel : ViewModel() {
 
     fun getTestValuesToCategoryMenu():List<CategoryItemMenu>{
         val resultList = mutableListOf<CategoryItemMenu>()
-        var item = CategoryItemMenu(R.drawable.ic_phones,"Phones",true)
+        var item = CategoryItemMenu(R.drawable.ic_phones,R.string.phones,true)
         resultList.add(item)
 
-        item = CategoryItemMenu(R.drawable.ic_computer,"Computer",false)
+        item = CategoryItemMenu(R.drawable.ic_computer,R.string.computer,false)
         resultList.add(item)
 
-        item = CategoryItemMenu(R.drawable.ic_health,"Health",false)
+        item = CategoryItemMenu(R.drawable.ic_health,R.string.health,false)
         resultList.add(item)
 
-        item = CategoryItemMenu(R.drawable.ic_books, "Books",false)
+        item = CategoryItemMenu(R.drawable.ic_books, R.string.books,false)
         resultList.add(item)
 
-        item = CategoryItemMenu(R.drawable.ic_books, "Books",false)
+        item = CategoryItemMenu(R.drawable.ic_books, R.string.books,false)
         resultList.add(item)
 
         return resultList
@@ -33,16 +33,16 @@ class HomeViewModel : ViewModel() {
     fun getTestValuesToBestSeller(): List<BestSellerMenu>{
     val resultList = mutableListOf<BestSellerMenu>()
 
-        var item = BestSellerMenu("\$1,047","\$1,500","Samsung Galaxy s20 Ultra",R.drawable.samsung_galaxy_s20_ultra_1,false)
+        var item = BestSellerMenu(R.string.samsung_galaxy_price,R.string.samsung_galaxy_old_price,R.string.samsung_galaxy_title,R.drawable.samsung_galaxy_s20_ultra_1,false)
         resultList.add(item)
 
-        item = BestSellerMenu("\$300","\$400","Xiaomi Mi 10 Pro",R.drawable.xiaomi,true)
+        item = BestSellerMenu(R.string.xiaomi_price,R.string.xiaomi_old_price,R.string.xiaomi_title,R.drawable.xiaomi,true)
         resultList.add(item)
 
-        item = BestSellerMenu("\$1,047","\$1,500","Samsung Note 20 Ultra",R.drawable.samsung_note_20,false)
+        item = BestSellerMenu(R.string.samsung_note_price,R.string.samsung_note_old_price,R.string.samsung_note_title,R.drawable.samsung_note_20,false)
         resultList.add(item)
 
-        item = BestSellerMenu("\$300","\$400","Motorola One Edge",R.drawable.motorola,false)
+        item = BestSellerMenu(R.string.motorola_price,R.string.motorola_old_price,R.string.motorola_title,R.drawable.motorola,false)
         resultList.add(item)
 
         return resultList

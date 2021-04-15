@@ -43,14 +43,15 @@ class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(
         val textViewTitle = itemView.textViewTitle
 
         fun insertToUI(categoryItem: CategoryItemMenu) {
-            imageViewSub.setImageDrawable(
-                ResourcesCompat.getDrawable(
-                    itemView.context.resources,
-                    categoryItem.imageId,
-                    null
-                )
-            )
-            textViewTitle.text = categoryItem.title
+            imageViewSub.setImageResource(categoryItem.imageId)
+//            imageViewSub.setImageDrawable(
+//                ResourcesCompat.getDrawable(
+//                    itemView.context.resources,
+//                    categoryItem.imageId,
+//                    null
+//                )
+//            )
+            textViewTitle.setText(categoryItem.title)
             if (categoryItem.isPressed) {
                 val colorSub = itemView.context.resources.getColor(R.color.white)
                 val color = itemView.context.resources.getColor(R.color.orange)
