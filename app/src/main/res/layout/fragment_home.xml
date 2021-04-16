@@ -21,7 +21,7 @@
 
     <Spinner
         android:id="@+id/spinnerGeo"
-        style="@style/SpinnerTheme"
+        style="@style/SpinnerGeoTheme"
         android:layout_width="140dp"
         android:layout_height="19dp"
         android:layout_marginTop="21dp"
@@ -201,5 +201,19 @@
         app:layout_constraintTop_toBottomOf="@id/labelBestSeller"
         tools:listitem="@layout/best_seller_item" />
 
+    <FrameLayout
+
+        android:background="@color/background"
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewHotSale"
+        android:visibility="gone"
+        android:layout_marginTop="8dp"/>
+
+   
 
 </androidx.constraintlayout.widget.ConstraintLayout>

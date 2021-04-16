@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/rounded_filter_frame"
+    >
+    <View
+        android:id="@+id/exitRounded"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:background="@drawable/exit_filter"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="24dp"/>
+    <View
+        android:layout_width="11dp"
+        android:layout_height="10dp"
+        app:layout_constraintTop_toTopOf="@id/exitRounded"
+        app:layout_constraintStart_toStartOf="@id/exitRounded"
+        app:layout_constraintEnd_toEndOf="@id/exitRounded"
+        app:layout_constraintBottom_toBottomOf="@id/exitRounded"
+        android:background="@drawable/ic_cross"/>
+    <TextView
+        android:id="@+id/labelFilterOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mark_pro"
+        style="@style/font_500_dark_blue"
+        android:text="Filter options"
+        app:layout_constraintTop_toTopOf="@id/exitRounded"
+        app:layout_constraintBottom_toBottomOf="@id/exitRounded"
+        app:layout_constraintStart_toEndOf="@id/exitRounded"
+        android:textSize="18sp"
+        android:layout_marginStart="69dp" />
+
+    <View
+        android:id="@+id/doneRounded"
+        android:layout_width="86dp"
+        android:layout_height="37dp"
+        android:background="@drawable/done_filter"
+        app:layout_constraintTop_toTopOf="@id/exitRounded"
+        app:layout_constraintBottom_toBottomOf="@id/exitRounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mark_pro"
+        style="@style/font_500_white"
+        android:textSize="18sp"
+        android:text="Done"
+        app:layout_constraintTop_toTopOf="@id/doneRounded"
+        app:layout_constraintBottom_toBottomOf="@id/doneRounded"
+        app:layout_constraintStart_toStartOf="@id/doneRounded"
+        app:layout_constraintEnd_toEndOf="@id/doneRounded"/>
+    <TextView
+        android:id="@+id/labelBrand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Brand"
+        android:fontFamily="@font/mark_pro"
+        android:textSize="18sp"
+        style="@style/font_500_dark_blue"
+        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toTopOf="@id/exitRounded"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="46dp"/>
+    <Spinner
+        android:id="@+id/spinnerBrand"
+        android:layout_width="337dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/labelBrand"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="46dp"
+        android:clickable="false"
+        android:entries="@array/testArrayForFilterBrand"
+        style="@style/SpinnerFilterTheme"
+        android:layout_marginTop="8dp"/>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

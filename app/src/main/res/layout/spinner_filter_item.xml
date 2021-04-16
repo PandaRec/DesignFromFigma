@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    style="@style/font_400_dark_blue"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fontFamily="@font/mark_pro"
+    android:textSize="18sp"
+    android:gravity="center_vertical"
+    android:layout_gravity="center_vertical"/>
