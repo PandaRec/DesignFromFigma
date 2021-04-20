@@ -1,14 +1,19 @@
 package com.example.designfromfigma2.ui.details
 
+import android.content.Context
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.DimenRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.designfromfigma2.R
 import com.example.designfromfigma2.adapters.DetailsViewPagerAdapter
+import com.example.designfromfigma2.utils.HorizontalMarginItemDecoration
 import kotlinx.android.synthetic.main.fragment_details.view.*
 import java.lang.Math.abs
 
@@ -31,6 +36,7 @@ class DetailsFragment: Fragment() {
 
 
         viewPager.offscreenPageLimit = 1
+        viewPager.setCurrentItem(1,false)
 
 
         val nextItemVisiblePx = resources.getDimension(R.dimen.viewpager_next_item_visible)
@@ -43,6 +49,15 @@ class DetailsFragment: Fragment() {
         }
         viewPager.setPageTransformer(pageTransformer)
 
+
+        context?.let {
+
+            val itemDecoration = HorizontalMarginItemDecoration(
+                it,
+                R.dimen.viewpager_current_item_horizontal_margin
+            )
+            viewPager.addItemDecoration(itemDecoration)
+        }
 
 
         return root
