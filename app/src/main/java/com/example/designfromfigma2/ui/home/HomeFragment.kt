@@ -8,6 +8,7 @@ import android.view.animation.TranslateAnimation
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.designfromfigma2.MainActivity
 import com.example.designfromfigma2.R
@@ -17,6 +18,7 @@ import com.example.designfromfigma2.adapters.HotSaleAdapter
 import com.example.designfromfigma2.ui.filter.FilterFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
+
 
 class HomeFragment : Fragment() {
 
@@ -30,6 +32,10 @@ class HomeFragment : Fragment() {
         homeViewModel =
                 ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
+        val navController = NavHostFragment.findNavController(this)
+
+
+        //                navController.navigate(R.id.navigation_details)
         val spinnerGeo = root.spinnerGeo
         val adapterGeo = ArrayAdapter.createFromResource(requireContext(),R.array.testArrayForSpinner,R.layout.spinner_geo_item)
         spinnerGeo.adapter = adapterGeo
@@ -65,6 +71,8 @@ class HomeFragment : Fragment() {
 
         recyclerViewBestSaller.adapter = adapterBestSeller
 
+
+
         adapterBestSeller.onLikeClickListener = object : BestSellerAdapter.OnLikeClickListener{
             override fun onLikeClick(position: Int) {
                 val tempList = adapterBestSeller.someList
@@ -72,14 +80,14 @@ class HomeFragment : Fragment() {
                 adapterBestSeller.someList = tempList
             }
         }
+        adapterBestSeller.onItemClickListener =object :BestSellerAdapter.OnItemClickListener{
+            override fun onItemClick(position: Int) {
+                navController.navigate(R.id.navigation_details)
+            }
+        }
 
         root.ic_filter.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
-                //MainActivity().changeVisibilityBottomNavigation(false)
-//                val root_2 = inflater.inflate(R.layout.activity_main, container, false)
-//                val rr = root_2.bottom_nav
-//
-//                rr.visibility = View.GONE
 
                 val fragmentManager = childFragmentManager
                 val fragmentTransaction = fragmentManager.beginTransaction()
@@ -87,15 +95,6 @@ class HomeFragment : Fragment() {
                 val filterFragment = FilterFragment()
                 fragmentTransaction.add(R.id.frameLayout,filterFragment).commit()
 
-
-
-
-                //fragmentTransaction.replace(R.id.frameLayout,filterFragment).commit()
-
-//                val animation = AnimationUtils.loadAnimation(this@HomeFragment.context,
-//                    R.anim.up_filter)
-//                frameLayout.startAnimation(animation)
-//                frameLayout.visibility = View.VISIBLE
                 val parentActivity = activity as MainActivity
                 val bottomNavigationView = parentActivity.bottomNavigationView
                 bottomNavigationView?.visibility = View.GONE
@@ -111,16 +110,6 @@ class HomeFragment : Fragment() {
                 frameLayout.visibility = View.VISIBLE
 
 
-//                if(kek==null){
-//                    Log.d("TAG","null")
-//                }else{
-//                    Log.d("TAG","not null")
-//                    kek.visibility = View.GONE
-//
-//                }
-
-
-
             }
         })
 
@@ -133,3 +122,5 @@ class HomeFragment : Fragment() {
 
 
 }
+
+
