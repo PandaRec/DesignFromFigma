@@ -33,7 +33,11 @@
     <string name="computer">Computer</string>
     <string name="health">Health</string>
     <string name="books">Books</string>
-
+    <string name="filter_options">Filter options</string>
+    <string name="done">Done</string>
+    <string name="label_brand">Brand</string>
+    <string name="lable_price">Price</string>
+    <string name="label_size">Size</string>
 
 
     <string-array name="testArrayForSpinner">
