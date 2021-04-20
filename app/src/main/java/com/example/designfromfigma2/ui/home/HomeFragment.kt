@@ -34,9 +34,7 @@ class HomeFragment : Fragment() {
         val adapterGeo = ArrayAdapter.createFromResource(requireContext(),R.array.testArrayForSpinner,R.layout.spinner_geo_item)
         spinnerGeo.adapter = adapterGeo
 
-        val spinnerBrand = root.spinnerGeo
-        val adapterBrand = ArrayAdapter.createFromResource(requireContext(),R.array.testArrayForFilterBrand,R.layout.spinner_filter_item)
-        spinnerBrand.adapter = adapterBrand
+
 
 
 
@@ -88,6 +86,10 @@ class HomeFragment : Fragment() {
 
                 val filterFragment = FilterFragment()
                 fragmentTransaction.add(R.id.frameLayout,filterFragment).commit()
+
+
+
+
                 //fragmentTransaction.replace(R.id.frameLayout,filterFragment).commit()
 
 //                val animation = AnimationUtils.loadAnimation(this@HomeFragment.context,

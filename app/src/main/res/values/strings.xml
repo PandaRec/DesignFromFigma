@@ -42,7 +42,17 @@
         <item>Васька</item>
         <item>Рыжик</item>
     </string-array>
+
     <string-array name="testArrayForFilterBrand">
         <item>Samsung</item>
     </string-array>
+
+    <string-array name="testArrayForFilterPrice">
+        <item>$300 - $500</item>
+    </string-array>
+
+    <string-array name="testArrayForFilterSize">
+        <item>4.5 to 5.5 inches</item>
+    </string-array>
+
 </resources>
