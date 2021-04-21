@@ -117,6 +117,16 @@
 
 
 
+    <style name="CustomRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/ratingbar</item>
+        <item name="android:minHeight">18dp</item>
+        <item name="android:maxHeight">18dp</item>
+        <item name="android:minWidth">18dp</item>
+        <item name="android:maxWidth">18dp</item>
+    </style>
+
+
+
 
 
 

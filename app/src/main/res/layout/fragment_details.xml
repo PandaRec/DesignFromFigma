@@ -118,6 +118,8 @@
                 android:layout_marginStart="38dp"
                 android:isIndicator="true"
                 android:numStars="5"
+                style= "@style/CustomRatingBar"
+
                 />
             <TextView
                 android:id="@+id/labelShop"
