@@ -82,7 +82,23 @@ class HomeFragment : Fragment() {
         }
         adapterBestSeller.onItemClickListener =object :BestSellerAdapter.OnItemClickListener{
             override fun onItemClick(position: Int) {
-                navController.navigate(R.id.navigation_details)
+                val current = adapterBestSeller.someList[position]
+
+                navController.navigate(HomeFragmentDirections.actionNavigationHomeToNavigationDetails(
+                    current.fullTitle,
+                    current.rating,
+                    current.processor,
+                    current.camera,
+                    current.ram,
+                    current.rom,
+                    current.price
+                )
+                )
+
+
+                //navController.navigate(R.id.navigation_details)
+//                navController.navigate(HomeFragmentDirections.actionNavigationHomeToNavigationDetails(
+//                    "",0,"","","","",""))
             }
         }
 

@@ -64,6 +64,337 @@
         android:layout_marginTop="30dp"
 
         />
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/viewPager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/rounded_filter_frame"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/titleDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Galaxy Note 20 Ultra"
+                android:textSize="24sp"
+                android:fontFamily="@font/mark_pro"
+                style="@style/font_500_dark_blue"
+                android:layout_marginTop="28dp"
+                android:layout_marginStart="38dp"/>
+            <View
+                android:id="@+id/likeDetails"
+                android:layout_width="37dp"
+                android:layout_height="33dp"
+                android:background="@drawable/exit_filter"
+                app:layout_constraintTop_toTopOf="@id/titleDetails"
+                app:layout_constraintBottom_toBottomOf="@id/titleDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="37dp"/>
+            <View
+                android:layout_width="14dp"
+                android:layout_height="13dp"
+                app:layout_constraintTop_toTopOf="@id/likeDetails"
+                app:layout_constraintBottom_toBottomOf="@id/likeDetails"
+                app:layout_constraintStart_toStartOf="@id/likeDetails"
+                app:layout_constraintEnd_toEndOf="@id/likeDetails"
+                android:background="@drawable/ic_not_like_bottom_navigation"/>
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/titleDetails"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="7dp"
+                android:layout_marginStart="38dp"
+                android:isIndicator="true"
+                android:numStars="5"
+                />
+            <TextView
+                android:id="@+id/labelShop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_shop"
+                android:fontFamily="@font/mark_pro"
+                style="@style/font_700_dark_blue"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/ratingBar"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="32dp"/>
+            <View
+                android:id="@+id/lineShop"
+                android:layout_width="86dp"
+                android:layout_height="2dp"
+                android:background="@color/orange"
+                app:layout_constraintTop_toBottomOf="@id/labelShop"
+                app:layout_constraintStart_toStartOf="@id/labelShop"
+                app:layout_constraintEnd_toEndOf="@id/labelShop"
+                android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/labelDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mark_pro"
+                style="@style/font_400_gray"
+                android:textSize="20sp"
+                android:text="@string/label_details"
+                app:layout_constraintTop_toTopOf="@id/labelShop"
+                app:layout_constraintBottom_toBottomOf="@id/labelShop"
+                app:layout_constraintStart_toEndOf="@id/labelShop"
+                android:layout_marginStart="69dp"/>
+
+            <View
+                android:id="@+id/lineDetails"
+                android:layout_width="86dp"
+                android:layout_height="2dp"
+                android:background="@color/orange"
+                app:layout_constraintTop_toBottomOf="@id/labelDetails"
+                app:layout_constraintStart_toStartOf="@id/labelDetails"
+                app:layout_constraintEnd_toEndOf="@id/labelDetails"
+                android:layout_marginTop="8dp"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/labelFeatures"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_features"
+                android:textSize="20sp"
+                style="@style/font_400_gray"
+                android:fontFamily="@font/mark_pro"
+                app:layout_constraintTop_toTopOf="@id/labelDetails"
+                app:layout_constraintBottom_toBottomOf="@id/labelDetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="40dp"/>
+
+            <View
+                android:id="@+id/lineFeatures"
+                android:layout_width="86dp"
+                android:layout_height="2dp"
+                android:background="@color/orange"
+                app:layout_constraintTop_toBottomOf="@id/labelFeatures"
+                app:layout_constraintStart_toStartOf="@id/labelFeatures"
+                app:layout_constraintEnd_toEndOf="@id/labelFeatures"
+                android:layout_marginTop="8dp"
+                android:visibility="invisible"/>
+
+            <View
+                android:id="@+id/iconProcessor"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@drawable/ic_processor"
+                app:layout_constraintTop_toBottomOf="@id/labelShop"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="41dp"
+                android:layout_marginStart="45dp"/>
+            <TextView
+                android:id="@+id/textViewProcessor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mark_pro"
+                style="@style/font_400_gray"
+                android:textSize="11sp"
+                tools:text="Exynos 990"
+                app:layout_constraintTop_toBottomOf="@id/iconProcessor"
+                app:layout_constraintStart_toStartOf="@id/iconProcessor"
+                app:layout_constraintEnd_toEndOf="@id/iconProcessor"
+                android:layout_marginTop="5dp"/>
+            <View
+                android:id="@+id/iconCamera"
+                android:layout_width="28dp"
+                android:layout_height="22dp"
+                app:layout_constraintTop_toTopOf="@id/iconProcessor"
+                app:layout_constraintBottom_toBottomOf="@id/iconProcessor"
+                app:layout_constraintStart_toEndOf="@id/iconProcessor"
+                android:background="@drawable/ic_camera"
+                android:layout_marginStart="74dp"/>
+            
+            <TextView
+                android:id="@+id/textViewCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mark_pro"
+                android:textSize="11sp"
+                style="@style/font_400_gray"
+                tools:text="108 + 12 mp"
+                android:layout_marginTop="9dp"
+                app:layout_constraintTop_toBottomOf="@id/iconCamera"
+                app:layout_constraintStart_toStartOf="@id/iconCamera"
+                app:layout_constraintEnd_toEndOf="@id/iconCamera"/>
+            
+            <View
+                android:id="@+id/iconRAM"
+                android:layout_width="28dp"
+                android:layout_height="21dp"
+                android:background="@drawable/icon_ram"
+                app:layout_constraintTop_toTopOf="@id/iconProcessor"
+                app:layout_constraintBottom_toBottomOf="@id/iconProcessor"
+                app:layout_constraintStart_toEndOf="@id/iconCamera"
+                android:layout_marginStart="64dp"/>
+            
+            <TextView
+                android:id="@+id/textViewRAM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="8 GB"
+                android:fontFamily="@font/mark_pro"
+                android:textSize="11sp"
+                style="@style/font_400_gray"
+                app:layout_constraintTop_toBottomOf="@id/iconRAM"
+                android:layout_marginTop="9dp"
+                app:layout_constraintStart_toStartOf="@id/iconRAM"
+                app:layout_constraintEnd_toEndOf="@id/iconRAM"/>
+            
+            <View
+                android:id="@+id/iconROM"
+                android:layout_width="18.86dp"
+                android:layout_height="22dp"
+                android:background="@drawable/ic_rom"
+                app:layout_constraintTop_toTopOf="@id/iconProcessor"
+                app:layout_constraintBottom_toBottomOf="@id/iconProcessor"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="60.14dp"/>
+
+            <TextView
+                android:id="@+id/textViewROM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="256 GB"
+                android:layout_marginTop="9dp"
+                app:layout_constraintTop_toBottomOf="@id/iconROM"
+                app:layout_constraintStart_toStartOf="@id/iconROM"
+                app:layout_constraintEnd_toEndOf="@id/iconROM"
+                android:fontFamily="@font/mark_pro"
+                android:textSize="11sp"
+                style="@style/font_400_gray"/>
+
+            <TextView
+                android:id="@+id/labelSelectColorCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@string/label_select_color_and_capacity"
+                android:fontFamily="@font/mark_pro"
+                style="@style/font_500_dark_blue"
+                app:layout_constraintTop_toBottomOf="@id/iconProcessor"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="48dp"
+                android:layout_marginStart="30dp"/>
+
+            <View
+                android:id="@+id/circleBrown"
+                android:layout_width="39.29dp"
+                android:layout_height="39.29dp"
+                android:background="@drawable/circle_brown"
+                app:layout_constraintTop_toBottomOf="@id/labelSelectColorCapacity"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="34.57dp"
+                android:layout_marginTop="14.71dp"/>
+            <View
+                android:layout_width="16.96dp"
+                android:layout_height="12.5dp"
+                android:background="@drawable/ic_mark"
+                app:layout_constraintTop_toTopOf="@id/circleBrown"
+                app:layout_constraintBottom_toBottomOf="@id/circleBrown"
+                app:layout_constraintStart_toStartOf="@id/circleBrown"
+                app:layout_constraintEnd_toEndOf="@id/circleBrown"/>
+
+            <View
+                android:id="@+id/circleBlue"
+                android:layout_width="39.29dp"
+                android:layout_height="39.29dp"
+                android:background="@drawable/circle_blue"
+                app:layout_constraintTop_toTopOf="@id/circleBrown"
+                app:layout_constraintBottom_toBottomOf="@id/circleBrown"
+                app:layout_constraintStart_toEndOf="@id/circleBrown"
+                android:layout_marginStart="18.75dp"/>
+            
+            <View
+                android:id="@+id/firstRomRounded"
+                android:layout_width="71.43dp"
+                android:layout_height="30.36dp"
+                android:background="@drawable/done_filter"
+                app:layout_constraintTop_toBottomOf="@id/labelSelectColorCapacity"
+                android:layout_marginTop="17.39dp"
+                android:layout_marginStart="58.04dp"
+                app:layout_constraintStart_toEndOf="@id/circleBlue"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mark_pro"
+                android:textSize="13sp"
+                android:text="@string/label_128_gb"
+                style="@style/font_700_white"
+                app:layout_constraintTop_toTopOf="@id/firstRomRounded"
+                app:layout_constraintBottom_toBottomOf="@id/firstRomRounded"
+                app:layout_constraintStart_toStartOf="@id/firstRomRounded"
+                app:layout_constraintEnd_toEndOf="@id/firstRomRounded"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mark_pro"
+                style="@style/font_700_gray_details"
+                android:text="@string/label_256_gb"
+                android:textSize="13sp"
+                app:layout_constraintTop_toTopOf="@id/firstRomRounded"
+                app:layout_constraintBottom_toBottomOf="@id/firstRomRounded"
+                android:layout_marginEnd="63dp"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="54dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="29dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintTop_toBottomOf="@id/circleBrown"
+                android:layout_marginTop="27dp"
+                android:background="@drawable/done_filter">
+
+                <TextView
+                    android:id="@+id/labelAddToCart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_add_to_cart"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/mark_pro"
+                    style="@style/font_700_white"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="14dp"/>
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@id/labelAddToCart"
+                    app:layout_constraintBottom_toBottomOf="@id/labelAddToCart"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="38dp"
+                    tools:text="$1,500.00"
+                    android:fontFamily="@font/mark_pro"
+                    android:textSize="20sp"
+                    style="@style/font_700_white"/>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

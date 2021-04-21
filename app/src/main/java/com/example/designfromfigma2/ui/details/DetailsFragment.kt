@@ -9,16 +9,28 @@ import android.view.ViewGroup
 import androidx.annotation.DimenRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.example.designfromfigma2.MainActivity
 import com.example.designfromfigma2.R
 import com.example.designfromfigma2.adapters.DetailsViewPagerAdapter
+import com.example.designfromfigma2.ui.home.HomeFragmentDirections
 import com.example.designfromfigma2.utils.HorizontalMarginItemDecoration
 import kotlinx.android.synthetic.main.fragment_details.view.*
 import java.lang.Math.abs
 
 class DetailsFragment: Fragment() {
     private lateinit var detailsViewModel: DetailsViewModel
+    private val args by navArgs<DetailsFragmentArgs>()
+    private val title by lazy { args.title }
+    private val rating by lazy { args.rating }
+    private val processor by lazy { args.processor}
+    private val camera by lazy { args.camera }
+    private val ram by lazy { args.RAM }
+    private val rom by lazy { args.ROM }
+    private val price by lazy { args.price }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,6 +70,19 @@ class DetailsFragment: Fragment() {
             )
             viewPager.addItemDecoration(itemDecoration)
         }
+
+        val parentActivity = activity as MainActivity
+        parentActivity.bottomNavigationView?.visibility=View.GONE
+
+        root.titleDetails.setText(title)
+        root.textViewProcessor.text = processor
+        root.textViewCamera.text = camera
+        root.textViewRAM.text = ram
+        root.textViewROM.text = rom
+        root.price.setText(price)
+        root.ratingBar.rating = rating.toFloat()
+
+
 
 
         return root
