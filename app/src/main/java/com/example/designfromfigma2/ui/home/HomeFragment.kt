@@ -35,7 +35,6 @@ class HomeFragment : Fragment() {
         val navController = NavHostFragment.findNavController(this)
 
 
-        //                navController.navigate(R.id.navigation_details)
         val spinnerGeo = root.spinnerGeo
         val adapterGeo = ArrayAdapter.createFromResource(requireContext(),R.array.testArrayForSpinner,R.layout.spinner_geo_item)
         spinnerGeo.adapter = adapterGeo
@@ -95,10 +94,6 @@ class HomeFragment : Fragment() {
                 )
                 )
 
-
-                //navController.navigate(R.id.navigation_details)
-//                navController.navigate(HomeFragmentDirections.actionNavigationHomeToNavigationDetails(
-//                    "",0,"","","","",""))
             }
         }
 
