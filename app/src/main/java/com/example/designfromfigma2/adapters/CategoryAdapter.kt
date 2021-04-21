@@ -11,39 +11,39 @@ import com.example.designfromfigma2.pojo.CategoryItemMenu
 import kotlinx.android.synthetic.main.category_item.view.*
 
 
-class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){
-    var onCategoryClickListener: OnCategoryClickListener?=null
-    var listOfIdOfCategories = listOf<CategoryItemMenu>()
-    set(value) {
-        field = value
-        notifyDataSetChanged()
+class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){ // наследуемся от Adapter
+    var onCategoryClickListener: OnCategoryClickListener?=null // переменная интерфейса
+    var listOfIdOfCategories = listOf<CategoryItemMenu>() // пустой список
+    set(value) { // переопределям сеттер
+        field = value // установка значения
+        notifyDataSetChanged() // подаем сигнал, что даныне изменились
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder { // переопределяем метод
+        val view = LayoutInflater.from(parent.context).inflate( //устновка layout для элемента
             R.layout.category_item,
             parent,
             false
         )
-        return CategoryViewHolder(view)
+        return CategoryViewHolder(view) // возвращаем CategoryViewHolder с View которыц связан с layout
     }
 
-    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        val current = listOfIdOfCategories[position]
-        holder.itemView.setOnClickListener { onCategoryClickListener?.onCategoryClick(position) }
-        holder.insertToUI(current)
+    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) { // переопеделяем метод
+        val current = listOfIdOfCategories[position] // получаем элемент из списка относительно позиции адаптера (recyclerView?)
+        holder.itemView.setOnClickListener { onCategoryClickListener?.onCategoryClick(position) } // установка слушателя нажатия на элемент
+        holder.insertToUI(current) // вызов метода для устновки данных в конктреных элемент
     }
 
-    override fun getItemCount() = listOfIdOfCategories.size
+    override fun getItemCount() = listOfIdOfCategories.size // переопределяем метод. возвращаем размер списка
 
 
-    inner class CategoryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val imageViewSub = itemView.imageViewSub
-        val imageView = itemView.imageView
-        val textViewTitle = itemView.textViewTitle
+    inner class CategoryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) { // вложенный класс. Наслжеуемся от ViewHolder
+        val imageViewSub = itemView.imageViewSub // присваиваем переменноц элемент из layout
+        val imageView = itemView.imageView // присваиваем переменноц элемент из layout
+        val textViewTitle = itemView.textViewTitle // присваиваем переменноц элемент из layout
 
-        fun insertToUI(categoryItem: CategoryItemMenu) {
-            imageViewSub.setImageResource(categoryItem.imageId)
+        fun insertToUI(categoryItem: CategoryItemMenu) { // метод устновки занчений в элементы в layout
+            imageViewSub.setImageResource(categoryItem.imageId) // установка картинки
 //            imageViewSub.setImageDrawable(
 //                ResourcesCompat.getDrawable(
 //                    itemView.context.resources,
@@ -51,27 +51,27 @@ class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(
 //                    null
 //                )
 //            )
-            textViewTitle.setText(categoryItem.title)
-            if (categoryItem.isPressed) {
-                val colorSub = itemView.context.resources.getColor(R.color.white)
-                val color = itemView.context.resources.getColor(R.color.orange)
-                imageViewSub.setColorFilter(colorSub)
-                imageView.setColorFilter(color)
-                textViewTitle.setTextAppearance(R.style.font_500_orange)
-                categoryItem.isPressed = false
+            textViewTitle.setText(categoryItem.title) // устновка текста
+            if (categoryItem.isPressed) { // проверка, нажата или нет кнопка лайка. Если да, то:
+                val colorSub = itemView.context.resources.getColor(R.color.white) // получаем белый цвет
+                val color = itemView.context.resources.getColor(R.color.orange) // получаем ораньжевый цвет
+                imageViewSub.setColorFilter(colorSub) // перекрашиваем элемент в белый
+                imageView.setColorFilter(color) // перекрашиваем элемент в рыжий
+                textViewTitle.setTextAppearance(R.style.font_500_orange) // устнавлаиваем стиль текста
+                categoryItem.isPressed = false // изменяем значения о нажатии
 
-            } else {
-                val colorSub = itemView.context.resources.getColor(R.color.gray)
-                val color = itemView.context.resources.getColor(R.color.white)
-                imageViewSub.setColorFilter(colorSub)
-                imageView.setColorFilter(color)
-                textViewTitle.setTextAppearance(R.style.font_500_dark_blue)
+            } else { // если нет, то:
+                val colorSub = itemView.context.resources.getColor(R.color.gray) // получаем серый цвет
+                val color = itemView.context.resources.getColor(R.color.white) // получаем белый цвет
+                imageViewSub.setColorFilter(colorSub) // перекрашиваем элемент в серый
+                imageView.setColorFilter(color) // перекрашиваем элемент в белый
+                textViewTitle.setTextAppearance(R.style.font_500_dark_blue) // устнавлаиваем стиль текста
 
             }
         }
     }
 
-    interface OnCategoryClickListener{
-        fun onCategoryClick(position: Int)
+    interface OnCategoryClickListener{ // интерфейс
+        fun onCategoryClick(position: Int) // метод интерфейса
     }
 }
