@@ -3,4 +3,70 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="label_select_category">Select Category</string>
+    <string name="label_view_all">view all</string>
+    <string name="label_hot_sales">Hot sales</string>
+    <string name="label_see_more">see more</string>
+    <string name="label_best_seller">Best Seller</string>
+    <string name="label_new">New</string>
+    <string name="label_iphone_12">Iphone 12</string>
+    <string name="label_s_per_mega_r_pido">Súper. Mega. Rápido.</string>
+    <string name="label_buy_now">Buy now!</string>
+    <string name="explore">explore</string>
+    <string name="backet">backet</string>
+    <string name="favorite">favorite</string>
+    <string name="person">person</string>
+    <string name="explorer">Explorer</string>
+    <string name="samsung_galaxy_price">$1,047</string>
+    <string name="samsung_galaxy_old_price">$1,500</string>
+    <string name="samsung_galaxy_title">Samsung Galaxy s20 Ultra</string>
+    <string name="xiaomi_price">$300</string>
+    <string name="xiaomi_old_price">$400</string>
+    <string name="xiaomi_title">Xiaomi Mi 10 Pro</string>
+    <string name="samsung_note_price">$1,047</string>
+    <string name="samsung_note_old_price">$1,500</string>
+    <string name="samsung_note_title">Samsung Note 20 Ultra</string>
+    <string name="motorola_price">$300</string>
+    <string name="motorola_old_price">$400</string>
+    <string name="motorola_title">Motorola One Edge</string>
+    <string name="phones">Phones</string>
+    <string name="computer">Computer</string>
+    <string name="health">Health</string>
+    <string name="books">Books</string>
+    <string name="filter_options">Filter options</string>
+    <string name="done">Done</string>
+    <string name="label_brand">Brand</string>
+    <string name="lable_price">Price</string>
+    <string name="label_size">Size</string>
+
+
+    <string-array name="testArrayForSpinner">
+        <item>Zihuatanejo, Gro</item>
+        <item>Мурзик</item>
+        <item>Васька</item>
+        <item>Рыжик</item>
+    </string-array>
+
+    <string-array name="testArrayForFilterBrand">
+        <item>Samsung</item>
+    </string-array>
+
+    <string-array name="testArrayForFilterPrice">
+        <item>$300 - $500</item>
+    </string-array>
+
+    <string-array name="testArrayForFilterSize">
+        <item>4.5 to 5.5 inches</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_product_details">Product Details</string>
+    <string name="label_shop">Shop</string>
+    <string name="label_details">Details</string>
+    <string name="label_features">Features</string>
+    <string name="label_select_color_and_capacity">Select color and capacity</string>
+    <string name="label_128_gb">128 GB</string>
+    <string name="label_256_gb">256 gb</string>
+    <string name="label_add_to_cart">Add to Cart</string>
+
 </resources>
