@@ -13,6 +13,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.designfromfigma2.R
 import com.example.designfromfigma2.adapters.BestSellerAdapter
 import com.example.designfromfigma2.adapters.CategoryAdapter
@@ -40,8 +41,7 @@ class HomeFragment : Fragment() {
         val recyclerViewCategory = root.recyclerViewCategory
         val adapterRecyclerView = CategoryAdapter()
 
-        adapterRecyclerView.listOfIdOfCategories = homeViewModel.getTestValuesToCategoryMenu()
-        recyclerViewCategory.adapter = adapterRecyclerView
+        initializeCategory(recyclerViewCategory,adapterRecyclerView)
 
         adapterRecyclerView.onCategoryClickListener = object : CategoryAdapter.OnCategoryClickListener{
             override fun onCategoryClick(position: Int) {
@@ -53,16 +53,12 @@ class HomeFragment : Fragment() {
 
         val recyclerViewHotSale = root.recyclerViewHotSale
         val adapterHotSale = HotSaleAdapter()
-        adapterHotSale.someList = listOf(R.drawable.hot_sale_new_2)
-        recyclerViewHotSale.adapter = adapterHotSale
+        initializeHotSale(recyclerViewHotSale,adapterHotSale)
 
 
         val recyclerViewBestSaller = root.recyclerViewBestSeller
         val adapterBestSeller = BestSellerAdapter()
-        adapterBestSeller.someList = homeViewModel.getTestValuesToBestSeller()
-        recyclerViewBestSaller.layoutManager = GridLayoutManager(context,2)
-
-        recyclerViewBestSaller.adapter = adapterBestSeller
+        initializeBestSeller(recyclerViewBestSaller,adapterBestSeller)
 
 //        adapterBestSeller.onLikeClickListener = object : BestSellerAdapter.OnLikeClickListener{
 //            override fun onLikeClick(position: Int) {
@@ -73,5 +69,20 @@ class HomeFragment : Fragment() {
 //        }
 
         return root
+    }
+
+    private fun initializeCategory(recyclerViewCategory:RecyclerView,adapter:CategoryAdapter ){
+        adapter.listOfIdOfCategories = homeViewModel.getTestValuesToCategoryMenu()
+        recyclerViewCategory.adapter = adapter
+    }
+    private fun initializeHotSale(recyclerViewHotSale: RecyclerView,adapterHotSale:HotSaleAdapter){
+        adapterHotSale.someList = listOf(R.drawable.hot_sale_new_2)
+        recyclerViewHotSale.adapter = adapterHotSale
+    }
+
+    private fun initializeBestSeller(recyclerViewBestSaller: RecyclerView,adapterBestSeller:BestSellerAdapter){
+        adapterBestSeller.someList = homeViewModel.getTestValuesToBestSeller()
+        recyclerViewBestSaller.layoutManager = GridLayoutManager(context,2)
+        recyclerViewBestSaller.adapter = adapterBestSeller
     }
 }
