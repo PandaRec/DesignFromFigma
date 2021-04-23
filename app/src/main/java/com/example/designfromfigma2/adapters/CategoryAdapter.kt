@@ -30,7 +30,7 @@ class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val current = listOfIdOfCategories[position]
-        holder.itemView.setOnClickListener { onCategoryClickListener?.onCategoryClick(position) }
+        holder.addListener(position)
         holder.insertToUI(current)
     }
 
@@ -41,6 +41,10 @@ class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(
         val imageViewSub = itemView.imageViewSub
         val imageView = itemView.imageView
         val textViewTitle = itemView.textViewTitle
+
+        fun addListener(position: Int){
+            itemView.setOnClickListener { onCategoryClickListener?.onCategoryClick(position) }
+        }
 
         fun insertToUI(categoryItem: CategoryItemMenu) {
             imageViewSub.setImageResource(categoryItem.imageId)
