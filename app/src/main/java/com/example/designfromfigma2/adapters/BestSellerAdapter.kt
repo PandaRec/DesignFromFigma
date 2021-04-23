@@ -11,7 +11,7 @@ import com.example.designfromfigma2.pojo.BestSellerMenu
 import kotlinx.android.synthetic.main.best_seller_item.view.*
 
 class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewHolder>() {
-    var onLikeClickListener: OnLikeClickListener?=null
+    //var onLikeClickListener: OnLikeClickListener?=null
     var someList = listOf<BestSellerMenu>()
     set(value) {
         field = value
@@ -24,7 +24,7 @@ class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewH
 
     override fun onBindViewHolder(holder: BestSellerViewHolder, position: Int) {
         val current = someList[position]
-        holder.itemView.setOnClickListener { onLikeClickListener?.onLikeClick(position) }
+        //holder.itemView.setOnClickListener { onLikeClickListener?.onLikeClick(position) }
         holder.insertToUI(current)
 
     }
@@ -58,7 +58,7 @@ class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewH
         }
     }
 
-    interface OnLikeClickListener{
-        fun onLikeClick(position: Int)
-    }
+//    interface OnLikeClickListener{
+//        fun onLikeClick(position: Int)
+//    }
 }

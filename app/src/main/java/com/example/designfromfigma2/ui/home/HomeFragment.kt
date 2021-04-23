@@ -64,13 +64,13 @@ class HomeFragment : Fragment() {
 
         recyclerViewBestSaller.adapter = adapterBestSeller
 
-        adapterBestSeller.onLikeClickListener = object : BestSellerAdapter.OnLikeClickListener{
-            override fun onLikeClick(position: Int) {
-                val tempList = adapterBestSeller.someList
-                tempList[position].isLiked = !tempList[position].isLiked
-                adapterBestSeller.someList = tempList
-            }
-        }
+//        adapterBestSeller.onLikeClickListener = object : BestSellerAdapter.OnLikeClickListener{
+//            override fun onLikeClick(position: Int) {
+//                val tempList = adapterBestSeller.someList
+//                tempList[position].isLiked = !tempList[position].isLiked
+//                adapterBestSeller.someList = tempList
+//            }
+//        }
 
         return root
     }
