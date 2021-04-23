@@ -97,32 +97,29 @@ class HomeFragment : Fragment() {
             }
         }
 
-        root.ic_filter.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(v: View?) {
+        root.ic_filter.setOnClickListener {
+            val fragmentManager = childFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
 
-                val fragmentManager = childFragmentManager
-                val fragmentTransaction = fragmentManager.beginTransaction()
+            val filterFragment = FilterFragment()
+            fragmentTransaction.add(R.id.frameLayout, filterFragment).commit()
 
-                val filterFragment = FilterFragment()
-                fragmentTransaction.add(R.id.frameLayout,filterFragment).commit()
+            val parentActivity = activity as MainActivity
+            val bottomNavigationView = parentActivity.bottomNavigationView
+            bottomNavigationView?.visibility = View.GONE
 
-                val parentActivity = activity as MainActivity
-                val bottomNavigationView = parentActivity.bottomNavigationView
-                bottomNavigationView?.visibility = View.GONE
+            val bot = recyclerViewHotSale.bottom
 
-                val bot = recyclerViewHotSale.bottom
+            frameLayout.startAnimation(TranslateAnimation(
+                0f, 0f,
+                bot.toFloat(), 0f
+            )
+                .apply {
+                    duration = 2000
+                })
 
-                frameLayout.startAnimation(TranslateAnimation(0f, 0f,
-                    bot.toFloat(), 0f)
-                    .apply {
-                        duration = 2000
-                    })
-
-                frameLayout.visibility = View.VISIBLE
-
-
-            }
-        })
+            frameLayout.visibility = View.VISIBLE
+        }
 
 
 
