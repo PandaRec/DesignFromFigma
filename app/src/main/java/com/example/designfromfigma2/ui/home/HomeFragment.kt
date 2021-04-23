@@ -21,6 +21,7 @@ import com.example.designfromfigma2.adapters.HotSaleAdapter
 import com.example.designfromfigma2.pojo.CategoryItemMenu
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import kotlinx.android.synthetic.main.top_of_home_layout.view.*
 
 class HomeFragment : Fragment() {
 

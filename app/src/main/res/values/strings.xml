@@ -33,7 +33,7 @@
     <string name="computer">Computer</string>
     <string name="health">Health</string>
     <string name="books">Books</string>
-
+    <string name="search_hint">Search</string>
 
 
     <string-array name="testArrayForSpinner">

@@ -7,65 +7,19 @@
     android:background="@color/background"
     tools:context=".ui.home.HomeFragment">
 
-    <ImageView
-        android:id="@+id/ic_geopoint"
-        android:layout_width="12dp"
-        android:layout_height="15.31dp"
-        android:layout_marginEnd="15.12dp"
-        android:src="@drawable/ic_geopoint"
-        app:layout_constraintBottom_toBottomOf="@id/spinnerGeo"
-        app:layout_constraintEnd_toStartOf="@id/spinnerGeo"
-        app:layout_constraintTop_toTopOf="@id/spinnerGeo"
+<include
+    android:id="@+id/top"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    layout="@layout/top_of_home_layout"/>
 
-        />
 
-    <Spinner
-        android:id="@+id/spinnerGeo"
-        style="@style/SpinnerTheme"
-        android:layout_width="140dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="21dp"
-        android:clickable="false"
-        android:entries="@array/testArrayForSpinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/ic_filter"
-        android:layout_width="11dp"
-        android:layout_height="13dp"
-        android:layout_marginEnd="35dp"
-        android:src="@drawable/ic_filter"
-        app:layout_constraintBottom_toBottomOf="@id/spinnerGeo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/spinnerGeo" />
-
-    <TextView
-        android:id="@+id/label_select_category"
-        style="@style/font_700_dark_blue"
-        android:layout_width="wrap_content"
+    <include
+        android:id="@+id/select_category"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="18dp"
-        android:fontFamily="@font/mark_pro"
-        android:text="@string/label_select_category"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinnerGeo" />
-
-    <TextView
-        android:id="@+id/label_view_all"
-        style="@style/font_400_orange"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="33dp"
-        android:fontFamily="@font/mark_pro"
-        android:text="@string/label_view_all"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@id/label_select_category"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/label_select_category" />
+        layout="@layout/select_category_of_home_layout"
+        app:layout_constraintTop_toBottomOf="@id/top"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCategory"
@@ -77,75 +31,22 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/label_select_category"
+        app:layout_constraintTop_toBottomOf="@id/select_category"
         tools:listitem="@layout/category_item" />
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="300dp"
-        android:layout_height="34dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="82dp"
-        android:background="@drawable/searchview_rounded"
-        android:closeIcon="@drawable/ic_search"
-        android:fontFamily="@font/mark_pro"
-        android:iconifiedByDefault="false"
-        android:padding="1dp"
-        android:queryBackground="@android:color/transparent"
-        android:queryHint="Search"
-        android:searchIcon="@drawable/ic_search"
-        android:theme="@style/SearchViewStyle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recyclerViewCategory" />
-
-    <ImageView
-        android:id="@+id/imageViewQRCircle"
-        android:layout_width="wrap_content"
+    <include
+        android:id="@+id/searchFragment"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginEnd="37dp"
-        android:src="@drawable/ic_ellipse_orange"
-        app:layout_constraintBottom_toBottomOf="@id/searchView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/searchView"
-        app:layout_constraintTop_toTopOf="@id/searchView" />
+        layout="@layout/search_of_home_fragment"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewCategory"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <include
+        android:id="@+id/hotSalesFragment"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_qr"
-        app:layout_constraintBottom_toBottomOf="@id/imageViewQRCircle"
-        app:layout_constraintEnd_toEndOf="@id/imageViewQRCircle"
-        app:layout_constraintStart_toStartOf="@id/imageViewQRCircle"
-        app:layout_constraintTop_toTopOf="@id/imageViewQRCircle" />
-
-    <TextView
-        android:id="@+id/labelHotSales"
-        style="@style/font_700_dark_blue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/mark_pro"
-        android:text="@string/label_hot_sales"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchView" />
-
-    <TextView
-        style="@style/font_400_orange"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="33dp"
-        android:fontFamily="@font/mark_pro"
-        android:text="@string/label_see_more"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@id/labelHotSales"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/labelHotSales" />
+        layout="@layout/hot_sales_of_home_fragment"
+        app:layout_constraintTop_toBottomOf="@id/searchFragment"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewHotSale"
@@ -158,33 +59,16 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/labelHotSales"
+        app:layout_constraintTop_toBottomOf="@id/hotSalesFragment"
         tools:listitem="@layout/hot_sales_item" />
 
-    <TextView
-        android:id="@+id/labelBestSeller"
-        style="@style/font_700_dark_blue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/mark_pro"
-        android:text="@string/label_best_seller"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recyclerViewHotSale" />
 
-    <TextView
-        style="@style/font_400_orange"
-        android:layout_width="wrap_content"
+    <include
+        android:id="@+id/bestSellerFragment"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="27dp"
-        android:fontFamily="@font/mark_pro"
-        android:text="@string/label_see_more"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@id/labelBestSeller"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/labelBestSeller" />
+        layout="@layout/best_seller_of_home_layout"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewHotSale"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewBestSeller"
@@ -198,7 +82,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/labelBestSeller"
+        app:layout_constraintTop_toBottomOf="@id/bestSellerFragment"
         tools:listitem="@layout/best_seller_item" />
 
 
