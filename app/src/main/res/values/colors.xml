@@ -15,4 +15,6 @@
     <color name="gray_for_search_view">#80809a</color>
     <color name="gray_old_price">#CCCCCC</color>
     <color name="border_spinner_filter">#DCDCDC</color>
+    <color name="brown">#772D03</color>
+    <color name="gray_details">#8D8D8D</color>
 </resources>

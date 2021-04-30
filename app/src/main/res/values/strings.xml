@@ -59,5 +59,15 @@
     <string-array name="testArrayForFilterSize">
         <item>4.5 to 5.5 inches</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_product_details">Product Details</string>
+    <string name="label_shop">Shop</string>
+    <string name="label_details">Details</string>
+    <string name="label_features">Features</string>
+    <string name="label_select_color_and_capacity">Select color and capacity</string>
+    <string name="label_128_gb">128 GB</string>
+    <string name="label_256_gb">256 gb</string>
+    <string name="label_add_to_cart">Add to Cart</string>
 
 </resources>
