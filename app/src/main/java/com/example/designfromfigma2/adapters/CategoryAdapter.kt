@@ -4,7 +4,6 @@ package com.example.designfromfigma2.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.designfromfigma2.R
 import com.example.designfromfigma2.pojo.CategoryItemMenu
@@ -48,13 +47,7 @@ class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(
 
         fun insertToUI(categoryItem: CategoryItemMenu) {
             imageViewSub.setImageResource(categoryItem.imageId)
-//            imageViewSub.setImageDrawable(
-//                ResourcesCompat.getDrawable(
-//                    itemView.context.resources,
-//                    categoryItem.imageId,
-//                    null
-//                )
-//            )
+
             textViewTitle.setText(categoryItem.title)
             if (categoryItem.isPressed) {
                 val colorSub = itemView.context.resources.getColor(R.color.white)

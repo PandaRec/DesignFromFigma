@@ -22,7 +22,6 @@ class DetailsViewPagerAdapter : RecyclerView.Adapter<DetailsViewPagerAdapter.Det
     override fun onBindViewHolder(holder: DetailsViewHolder, position: Int) {
         val current = listOfIdOfImages[position]
         holder.insertToUi(current,position)
-        //todo: при нормальных картинках убрать передачу позиции и изменить insertToUi
     }
 
     override fun getItemCount() = listOfIdOfImages.size

@@ -3,7 +3,6 @@ package com.example.designfromfigma2.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat.getDrawable
 import androidx.recyclerview.widget.RecyclerView
 import com.example.designfromfigma2.R
 import kotlinx.android.synthetic.main.hot_sales_item.view.*
@@ -32,7 +31,6 @@ class HotSaleAdapter: RecyclerView.Adapter<HotSaleAdapter.HotSaleViewHolder>() {
 
         fun insertToUI(hotSaleItemImgId:Int){
             imageViewMain.setImageResource(hotSaleItemImgId)
-            //imageViewMain.setImageDrawable(getDrawable(itemView.context.resources,hotSaleItemImgId,null))
 
         }
     }

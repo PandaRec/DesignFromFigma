@@ -1,7 +1,5 @@
 package com.example.designfromfigma2.ui.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.designfromfigma2.R
 import com.example.designfromfigma2.pojo.BestSellerMenu

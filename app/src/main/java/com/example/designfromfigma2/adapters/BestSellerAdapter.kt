@@ -4,14 +4,12 @@ import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.designfromfigma2.R
 import com.example.designfromfigma2.pojo.BestSellerMenu
 import kotlinx.android.synthetic.main.best_seller_item.view.*
 
 class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewHolder>() {
-    //var onLikeClickListener: OnLikeClickListener?=null
     var onItemClickListener: OnItemClickListener?=null
     var someList = listOf<BestSellerMenu>()
     set(value) {
@@ -25,7 +23,6 @@ class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewH
 
     override fun onBindViewHolder(holder: BestSellerViewHolder, position: Int) {
         val current = someList[position]
-        //holder.itemView.setOnClickListener { onLikeClickListener?.onLikeClick(position) }
         holder.itemView.setOnClickListener { onItemClickListener?.onItemClick(position) }
         holder.insertToUI(current)
 
@@ -42,7 +39,6 @@ class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewH
 
         fun insertToUI(bestSeller: BestSellerMenu){
             imageViewMain.setImageResource(bestSeller.imageId)
-            //imageViewMain.setImageDrawable(ResourcesCompat.getDrawable(itemView.context.resources,bestSeller.imageId,null))
             textViewTitle.setText(bestSeller.fullTitle)
             textViewPrice.setText( bestSeller.price)
             textViewOldPrice.setText(bestSeller.oldPrice)
@@ -50,19 +46,14 @@ class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewH
 
             if(bestSeller.isLiked){
                 imageViewLike.setImageResource(R.drawable.ic_like)
-                //imageViewLike.setImageDrawable(ResourcesCompat.getDrawable(itemView.context.resources,R.drawable.ic_like,null))
 
             }else{
                 imageViewLike.setImageResource(R.drawable.ic_menu_not_like)
-                //imageViewLike.setImageDrawable(ResourcesCompat.getDrawable(itemView.context.resources,R.drawable.ic_menu_not_like,null))
 
             }
         }
     }
 
-//    interface OnLikeClickListener{
-//        fun onLikeClick(position: Int)
-//    }
     interface OnItemClickListener{
         fun onItemClick(position: Int)
     }

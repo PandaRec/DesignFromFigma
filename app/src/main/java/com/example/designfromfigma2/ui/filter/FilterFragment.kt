@@ -8,8 +8,6 @@ import android.view.animation.TranslateAnimation
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import com.example.designfromfigma2.MainActivity
 import com.example.designfromfigma2.R
 import kotlinx.android.synthetic.main.fragment_filter.view.*
