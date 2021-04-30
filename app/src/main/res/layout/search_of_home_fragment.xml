@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="300dp"
+        android:layout_height="34dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="82dp"
+        android:background="@drawable/searchview_rounded"
+        android:closeIcon="@drawable/ic_search"
+        android:fontFamily="@font/mark_pro"
+        android:iconifiedByDefault="false"
+        android:padding="1dp"
+        android:queryBackground="@android:color/transparent"
+        android:queryHint="@string/search_hint"
+        android:searchIcon="@drawable/ic_search"
+        android:theme="@style/SearchViewStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewQRCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="37dp"
+        android:src="@drawable/ic_ellipse_orange"
+        app:layout_constraintBottom_toBottomOf="@id/searchView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/searchView"
+        app:layout_constraintTop_toTopOf="@id/searchView" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_qr"
+        app:layout_constraintBottom_toBottomOf="@id/imageViewQRCircle"
+        app:layout_constraintEnd_toEndOf="@id/imageViewQRCircle"
+        app:layout_constraintStart_toStartOf="@id/imageViewQRCircle"
+        app:layout_constraintTop_toTopOf="@id/imageViewQRCircle" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

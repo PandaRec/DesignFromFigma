@@ -1,22 +1,30 @@
 package com.example.designfromfigma2.ui.home
 
+import android.graphics.PorterDuff
+import android.graphics.Typeface
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.TranslateAnimation
 import android.widget.ArrayAdapter
+import android.widget.GridLayout
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.designfromfigma2.MainActivity
 import com.example.designfromfigma2.R
 import com.example.designfromfigma2.adapters.BestSellerAdapter
 import com.example.designfromfigma2.adapters.CategoryAdapter
 import com.example.designfromfigma2.adapters.HotSaleAdapter
+import com.example.designfromfigma2.pojo.CategoryItemMenu
 import com.example.designfromfigma2.ui.filter.FilterFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import kotlinx.android.synthetic.main.top_of_home_layout.view.*
 
 class HomeFragment : Fragment() {
 
@@ -30,19 +38,14 @@ class HomeFragment : Fragment() {
         homeViewModel =
                 ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val spinnerGeo = root.spinnerGeo
-        val adapterGeo = ArrayAdapter.createFromResource(requireContext(),R.array.testArrayForSpinner,R.layout.spinner_geo_item)
-        spinnerGeo.adapter = adapterGeo
-
-
-
-
+        val spinner = root.spinnerGeo
+        val adapter = ArrayAdapter.createFromResource(requireContext(),R.array.testArrayForSpinner,R.layout.spinner_item)
+        spinner.adapter = adapter
 
         val recyclerViewCategory = root.recyclerViewCategory
         val adapterRecyclerView = CategoryAdapter()
 
-        adapterRecyclerView.listOfIdOfCategories = homeViewModel.getTestValuesToCategoryMenu()
-        recyclerViewCategory.adapter = adapterRecyclerView
+        initializeCategory(recyclerViewCategory,adapterRecyclerView)
 
         adapterRecyclerView.onCategoryClickListener = object : CategoryAdapter.OnCategoryClickListener{
             override fun onCategoryClick(position: Int) {
@@ -54,24 +57,25 @@ class HomeFragment : Fragment() {
 
         val recyclerViewHotSale = root.recyclerViewHotSale
         val adapterHotSale = HotSaleAdapter()
-        adapterHotSale.someList = listOf(R.drawable.hot_sale_new_2)
-        recyclerViewHotSale.adapter = adapterHotSale
+        initializeHotSale(recyclerViewHotSale,adapterHotSale)
 
 
         val recyclerViewBestSaller = root.recyclerViewBestSeller
         val adapterBestSeller = BestSellerAdapter()
-        adapterBestSeller.someList = homeViewModel.getTestValuesToBestSeller()
-        recyclerViewBestSaller.layoutManager = GridLayoutManager(context,2)
-
         recyclerViewBestSaller.adapter = adapterBestSeller
 
-        adapterBestSeller.onLikeClickListener = object : BestSellerAdapter.OnLikeClickListener{
-            override fun onLikeClick(position: Int) {
-                val tempList = adapterBestSeller.someList
-                tempList[position].isLiked = !tempList[position].isLiked
-                adapterBestSeller.someList = tempList
-            }
-        }
+        initializeBestSeller(recyclerViewBestSaller,adapterBestSeller)
+
+
+
+//        adapterBestSeller.onLikeClickListener = object : BestSellerAdapter.OnLikeClickListener{
+//            override fun onLikeClick(position: Int) {
+//                val tempList = adapterBestSeller.someList
+//                tempList[position].isLiked = !tempList[position].isLiked
+//                adapterBestSeller.someList = tempList
+//            }
+//        }
+
 
         root.ic_filter.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
@@ -103,10 +107,10 @@ class HomeFragment : Fragment() {
                 val bot = recyclerViewHotSale.bottom
 
                 frameLayout.startAnimation(TranslateAnimation(0f, 0f,
-                    bot.toFloat(), 0f)
-                    .apply {
-                        duration = 2000
-                    })
+                        bot.toFloat(), 0f)
+                        .apply {
+                            duration = 2000
+                        })
 
                 frameLayout.visibility = View.VISIBLE
 
@@ -127,9 +131,20 @@ class HomeFragment : Fragment() {
 
 
 
-
         return root
     }
+    private fun initializeCategory(recyclerViewCategory: RecyclerView, adapter:CategoryAdapter ){
+        adapter.listOfIdOfCategories = homeViewModel.getTestValuesToCategoryMenu()
+        recyclerViewCategory.adapter = adapter
+    }
+    private fun initializeHotSale(recyclerViewHotSale: RecyclerView, adapterHotSale:HotSaleAdapter){
+        adapterHotSale.someList = listOf(R.drawable.hot_sale_new_2)
+        recyclerViewHotSale.adapter = adapterHotSale
+    }
 
-
+    private fun initializeBestSeller(recyclerViewBestSaller: RecyclerView, adapterBestSeller:BestSellerAdapter){
+        adapterBestSeller.someList = homeViewModel.getTestValuesToBestSeller()
+        recyclerViewBestSaller.layoutManager = GridLayoutManager(context,2)
+        recyclerViewBestSaller.adapter = adapterBestSeller
+    }
 }

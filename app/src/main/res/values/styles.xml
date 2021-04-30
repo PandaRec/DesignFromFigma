@@ -103,6 +103,10 @@
 <!--            <item name="android:popupBackground">#DFFFFFFF</item>-->
 
     </style>
+    <style name="SpinnerTheme" parent="android:Widget.Spinner">
+        <item name="android:background">@drawable/spinner_background</item>
+
+    </style>
 
     <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView" >
         <item name="android:textSize">12sp</item>
