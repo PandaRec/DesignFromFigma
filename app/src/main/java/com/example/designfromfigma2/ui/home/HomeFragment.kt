@@ -1,6 +1,7 @@
 package com.example.designfromfigma2.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -63,7 +64,6 @@ class HomeFragment : Fragment() {
 
         val recyclerViewBestSaller = root.recyclerViewBestSeller
         val adapterBestSeller = BestSellerAdapter()
-        recyclerViewBestSaller.adapter = adapterBestSeller
         initializeBestSeller(recyclerViewBestSaller,adapterBestSeller)
 
 
@@ -128,8 +128,19 @@ class HomeFragment : Fragment() {
     }
 
     private fun initializeBestSeller(recyclerViewBestSaller: RecyclerView, adapterBestSeller:BestSellerAdapter){
-        adapterBestSeller.someList = homeViewModel.getTestValuesToBestSeller()
-        recyclerViewBestSaller.layoutManager = GridLayoutManager(context,2)
-        recyclerViewBestSaller.adapter = adapterBestSeller
+        homeViewModel.getPhones().subscribe({
+            adapterBestSeller.someList = it
+            recyclerViewBestSaller.layoutManager = GridLayoutManager(context,2)
+            recyclerViewBestSaller.adapter = adapterBestSeller
+            adapterBestSeller.notifyDataSetChanged()
+            Log.d("TAG","geted")
+        },{
+            Log.d("TAG",it.message.toString())
+        })
+        Log.d("g","")
+//        adapterBestSeller.someList = listOf()
+//        recyclerViewBestSaller.layoutManager = GridLayoutManager(context,2)
+//        recyclerViewBestSaller.adapter = adapterBestSeller
+//        homeViewModel.test()
     }
 }

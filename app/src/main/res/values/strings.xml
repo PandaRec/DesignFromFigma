@@ -19,7 +19,7 @@
     <string name="explorer">Explorer</string>
     <string name="samsung_galaxy_price">$1,047</string>
     <string name="samsung_galaxy_old_price">$1,500</string>
-    <string name="samsung_galaxy_title">Samsung Galaxy s20 Ultra</string>
+    <!--<string name="samsung_galaxy_title">Samsung Galaxy s20 Ultra</string>-->
     <string name="xiaomi_price">$300</string>
     <string name="xiaomi_old_price">$400</string>
     <string name="xiaomi_title">Xiaomi Mi 10 Pro</string>

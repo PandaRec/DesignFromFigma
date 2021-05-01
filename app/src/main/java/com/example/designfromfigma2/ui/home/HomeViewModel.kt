@@ -1,9 +1,14 @@
 package com.example.designfromfigma2.ui.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.example.designfromfigma2.R
+import com.example.designfromfigma2.api.ApiService
 import com.example.designfromfigma2.pojo.BestSellerMenu
 import com.example.designfromfigma2.pojo.CategoryItemMenu
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class HomeViewModel : ViewModel() {
 
@@ -28,26 +33,40 @@ class HomeViewModel : ViewModel() {
 
     }
 
-    fun getTestValuesToBestSeller(): List<BestSellerMenu>{
-    val resultList = mutableListOf<BestSellerMenu>()
+//    fun getTestValuesToBestSeller(): List<BestSellerMenu>{
+//    val resultList = mutableListOf<BestSellerMenu>()
+//
+//        var item = BestSellerMenu(R.string.samsung_galaxy_price,R.string.samsung_galaxy_old_price,R.string.samsung_galaxy_title,R.drawable.samsung_galaxy_s20_ultra_1,false,
+//            "Exynos 990",5,"108 + 12 mp","8 GB","256 GB")
+//        resultList.add(item)
+//
+//        item = BestSellerMenu(R.string.xiaomi_price,R.string.xiaomi_old_price,R.string.xiaomi_title,R.drawable.xiaomi,true,
+//            "Exynos 990",4,"108 + 12 mp","4 GB","128 GB")
+//        resultList.add(item)
+//
+//        item = BestSellerMenu(R.string.samsung_note_price,R.string.samsung_note_old_price,R.string.samsung_note_title,R.drawable.samsung_note_20,false,
+//            "Exynos 990",3,"108 + 12 mp","16 GB","64 GB")
+//        resultList.add(item)
+//
+//        item = BestSellerMenu(R.string.motorola_price,R.string.motorola_old_price,R.string.motorola_title,R.drawable.motorola,false,
+//            "Exynos 990",2,"108 + 12 mp","2 GB","512 GB")
+//        resultList.add(item)
+//
+//        return resultList
+//    }
 
-        var item = BestSellerMenu(R.string.samsung_galaxy_price,R.string.samsung_galaxy_old_price,R.string.samsung_galaxy_title,R.drawable.samsung_galaxy_s20_ultra_1,false,
-            "Exynos 990",5,"108 + 12 mp","8 GB","256 GB")
-        resultList.add(item)
+    fun getPhones():Observable<List<BestSellerMenu>>{
+        return ApiService.api.getPhones()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+    }
 
-        item = BestSellerMenu(R.string.xiaomi_price,R.string.xiaomi_old_price,R.string.xiaomi_title,R.drawable.xiaomi,true,
-            "Exynos 990",4,"108 + 12 mp","4 GB","128 GB")
-        resultList.add(item)
-
-        item = BestSellerMenu(R.string.samsung_note_price,R.string.samsung_note_old_price,R.string.samsung_note_title,R.drawable.samsung_note_20,false,
-            "Exynos 990",3,"108 + 12 mp","16 GB","64 GB")
-        resultList.add(item)
-
-        item = BestSellerMenu(R.string.motorola_price,R.string.motorola_old_price,R.string.motorola_title,R.drawable.motorola,false,
-            "Exynos 990",2,"108 + 12 mp","2 GB","512 GB")
-        resultList.add(item)
-
-        return resultList
+    fun test(){
+        getPhones().subscribe({
+            Log.d("TAG","test")
+        },{
+            Log.d("TAG",it.message.toString())
+        })
     }
 
 

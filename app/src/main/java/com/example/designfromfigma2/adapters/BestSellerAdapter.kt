@@ -1,6 +1,7 @@
 package com.example.designfromfigma2.adapters
 
 import android.graphics.Paint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,9 @@ class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewH
         val current = someList[position]
         holder.itemView.setOnClickListener { onItemClickListener?.onItemClick(position) }
         holder.insertToUI(current)
+        Log.d("TAG","insert invoke")
+        Log.d("TAG","list size ${someList.size}")
+
 
     }
 
@@ -39,14 +43,15 @@ class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewH
         val imageViewLike = itemView.imageViewLike
 
         fun insertToUI(bestSeller: BestSellerMenu){
-            Glide.with(itemView).load(bestSeller.imageId).into(imageViewMain)
+            Log.d("TAG","--->${bestSeller.fullTitle}")
+            Glide.with(itemView).load(bestSeller.image).into(imageViewMain)
             //imageViewMain.setImageResource(bestSeller.imageId)
-            textViewTitle.setText(bestSeller.fullTitle)
-            textViewPrice.setText( bestSeller.price)
-            textViewOldPrice.setText(bestSeller.oldPrice)
+            textViewTitle.text = bestSeller.fullTitle
+            textViewPrice.text = bestSeller.price
+            textViewOldPrice.text = bestSeller.oldPrice
             textViewOldPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
 
-            if(bestSeller.isLiked){
+            if(bestSeller.isIsLiked){
                 imageViewLike.setImageResource(R.drawable.ic_like)
 
             }else{
