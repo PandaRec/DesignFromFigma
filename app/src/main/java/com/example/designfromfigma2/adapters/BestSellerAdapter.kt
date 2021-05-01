@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.designfromfigma2.R
 import com.example.designfromfigma2.pojo.BestSellerMenu
 import kotlinx.android.synthetic.main.best_seller_item.view.*
@@ -38,7 +39,8 @@ class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewH
         val imageViewLike = itemView.imageViewLike
 
         fun insertToUI(bestSeller: BestSellerMenu){
-            imageViewMain.setImageResource(bestSeller.imageId)
+            Glide.with(itemView).load(bestSeller.imageId).into(imageViewMain)
+            //imageViewMain.setImageResource(bestSeller.imageId)
             textViewTitle.setText(bestSeller.fullTitle)
             textViewPrice.setText( bestSeller.price)
             textViewOldPrice.setText(bestSeller.oldPrice)
