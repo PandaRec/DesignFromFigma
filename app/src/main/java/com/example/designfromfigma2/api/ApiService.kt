@@ -30,7 +30,6 @@ object ApiService {
             addInterceptor(
                 Interceptor { chain ->
                     val builder = chain.request().newBuilder()
-                    //builder.header("accept", "application/json")
                     builder.header("x-apikey","f986c83633e28d3afba3094e11a9add361b90")
                     return@Interceptor chain.proceed(builder.build())
                 }

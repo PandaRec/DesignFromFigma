@@ -132,15 +132,9 @@ class HomeFragment : Fragment() {
             adapterBestSeller.someList = it
             recyclerViewBestSaller.layoutManager = GridLayoutManager(context,2)
             recyclerViewBestSaller.adapter = adapterBestSeller
-            adapterBestSeller.notifyDataSetChanged()
-            Log.d("TAG","geted")
         },{
             Log.d("TAG",it.message.toString())
         })
-        Log.d("g","")
-//        adapterBestSeller.someList = listOf()
-//        recyclerViewBestSaller.layoutManager = GridLayoutManager(context,2)
-//        recyclerViewBestSaller.adapter = adapterBestSeller
-//        homeViewModel.test()
+
     }
 }
