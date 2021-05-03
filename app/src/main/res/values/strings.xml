@@ -69,5 +69,7 @@
     <string name="label_128_gb">128 GB</string>
     <string name="label_256_gb">256 gb</string>
     <string name="label_add_to_cart">Add to Cart</string>
+    <string name="add_address">Add address</string>
+    <string name="my_cart">My Cart</string>
 
 </resources>

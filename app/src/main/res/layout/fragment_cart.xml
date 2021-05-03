@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background">
+
+    <include
+        android:id="@+id/topCart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/top_of_cart_layout"/>
+
+    <TextView
+        android:id="@+id/textViewMyCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="35sp"
+        android:text="@string/my_cart"
+        android:fontFamily="@font/mark_pro"
+        style="@style/font_700_dark_blue"
+        app:layout_constraintTop_toBottomOf="@id/topCart"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="42dp"/>
+
+<!--<ScrollView-->
+<!--    android:layout_width="0dp"-->
+<!--    android:layout_height="0dp"-->
+<!--    android:background="@drawable/rounded_cart_frame"-->
+<!--    app:layout_constraintTop_toBottomOf="@id/textViewMyCart"-->
+<!--    app:layout_constraintStart_toStartOf="parent"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--    android:layout_marginTop="49dp">-->
+
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        -->
+
+
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--</ScrollView>-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/textViewMyCart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/rounded_cart_frame"
+        android:layout_marginTop="49dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/cart_item"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
