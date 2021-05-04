@@ -144,6 +144,7 @@ class HomeFragment : Fragment() {
             Log.d("TAG",it.message.toString())
         })
         //todo: wrong place to download data. Need place where data do not destroy while fragment alive
+        //todo: add compositeDisposable and override onDestroy
 
     }
 }
