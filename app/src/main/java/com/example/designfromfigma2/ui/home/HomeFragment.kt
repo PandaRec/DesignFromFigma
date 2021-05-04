@@ -78,13 +78,16 @@ class HomeFragment : Fragment() {
                 val current = adapterBestSeller.someList[position]
 
                 navController.navigate(HomeFragmentDirections.actionNavigationHomeToNavigationDetails(
+                        current.id,
                     current.fullTitle,
                     current.rating,
                     current.processor,
                     current.camera,
                     current.ram,
                     current.rom,
-                    current.price
+                    current.price,
+                        current.image
+
                 )
                 )
 
@@ -147,4 +150,5 @@ class HomeFragment : Fragment() {
         //todo: add compositeDisposable and override onDestroy
 
     }
+
 }

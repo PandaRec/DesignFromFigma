@@ -368,6 +368,7 @@
                 app:layout_constraintTop_toTopOf="@id/firstRomRounded" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addToCard"
                 android:layout_width="0dp"
                 android:layout_height="54dp"
                 android:layout_marginStart="29dp"

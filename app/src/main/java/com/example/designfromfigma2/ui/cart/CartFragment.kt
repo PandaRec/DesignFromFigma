@@ -15,6 +15,11 @@ import kotlinx.android.synthetic.main.fragment_cart.view.*
 import kotlinx.android.synthetic.main.top_of_cart_layout.view.*
 
 class CartFragment: Fragment() {
+    //todo: trash
+    //todo: minus, plus
+    //todo: recalculate total
+    //todo: add disposable and override onDestroy
+
     lateinit var cartViewModel: CartViewModel
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         cartViewModel=
@@ -24,7 +29,6 @@ class CartFragment: Fragment() {
 
 
         root.roundedBack.setOnClickListener {
-            Log.d("TAG","pressed back")
             navController.navigate(R.id.navigation_home)
         }
 
@@ -34,7 +38,7 @@ class CartFragment: Fragment() {
         return root
     }
 
-    fun initializeRecyclerViewCart(recyclerView:RecyclerView,adapter:CartAdapter ){
+    private fun initializeRecyclerViewCart(recyclerView:RecyclerView, adapter:CartAdapter ){
         cartViewModel.getCart().subscribe({
             recyclerView.adapter = adapter
             adapter.cartItems = it
