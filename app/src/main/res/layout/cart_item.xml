@@ -15,8 +15,9 @@
         android:layout_marginStart="33dp"/>
 
     <ImageView
+        android:id="@+id/imageViewCart"
         android:layout_width="84dp"
-        android:layout_height="0dp"
+        android:layout_height="84dp"
         android:src="@drawable/samsung_galaxy_s20_ultra_1"
         app:layout_constraintTop_toTopOf="@id/roundedImageCart"
         app:layout_constraintBottom_toBottomOf="@id/roundedImageCart"
