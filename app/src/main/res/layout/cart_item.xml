@@ -53,12 +53,12 @@
         android:layout_width="14.75dp"
         android:layout_height="16dp"
         android:background="@drawable/ic_trash"
-        app:layout_constraintTop_toTopOf="@id/counter"
+        app:layout_constraintTop_toTopOf="@id/counter_rounded"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/counter"
+        app:layout_constraintBottom_toBottomOf="@id/counter_rounded"
         android:layout_marginEnd="32.25dp"/>
     <View
-        android:id="@+id/counter"
+        android:id="@+id/counter_rounded"
         android:layout_width="26dp"
         android:layout_height="68dp"
         android:background="@drawable/rounded_counter_cart"
@@ -71,9 +71,35 @@
         android:layout_width="9.29dp"
         android:layout_height="2dp"
         android:background="@drawable/ic_minus"
-        app:layout_constraintTop_toTopOf="@id/counter"
-        app:layout_constraintStart_toStartOf="@id/counter"
-        app:layout_constraintBottom_toBottomOf="@id/counter"/>
+        app:layout_constraintTop_toTopOf="@id/counter_rounded"
+        app:layout_constraintStart_toStartOf="@id/counter_rounded"
+        app:layout_constraintEnd_toEndOf="@id/counter_rounded"
+        app:layout_constraintBottom_toTopOf="@id/counter"
+        android:layout_marginTop="14dp"
+        />
+
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2"
+        android:textSize="20sp"
+        android:fontFamily="@font/mark_pro"
+        style="@style/font_500_white"
+        app:layout_constraintTop_toTopOf="@id/counter_rounded"
+        app:layout_constraintBottom_toBottomOf="@id/counter_rounded"
+        app:layout_constraintStart_toStartOf="@id/counter_rounded"
+        app:layout_constraintEnd_toEndOf="@id/counter_rounded"/>
+
+    <View
+        android:layout_width="8.36dp"
+        android:layout_height="9dp"
+        android:background="@drawable/ic_plus"
+        app:layout_constraintTop_toBottomOf="@id/counter"
+        app:layout_constraintBottom_toBottomOf="@id/counter_rounded"
+        app:layout_constraintStart_toStartOf="@id/counter_rounded"
+        app:layout_constraintEnd_toEndOf="@id/counter_rounded"
+        android:layout_marginBottom="8dp"/>
 
 
 

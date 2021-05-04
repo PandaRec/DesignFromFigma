@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/dark_blue"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/textViewTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/mark_pro"
+        style="@style/font_400_white"
+        android:textSize="15sp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="55dp"/>
+    <TextView
+        android:id="@+id/totalPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mark_pro"
+        style="@style/font_700_white"
+        app:layout_constraintTop_toTopOf="@id/textViewTotal"
+        app:layout_constraintBottom_toBottomOf="@id/textViewTotal"
+        android:text="$6,000 us"
+        app:layout_constraintStart_toStartOf="@id/textViewFree"/>
+
+
+
+    <TextView
+        android:id="@+id/textViewDelivery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delivery"
+        android:fontFamily="@font/mark_pro"
+        style="@style/font_400_white"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/textViewTotal"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="55dp"/>
+    <TextView
+        android:id="@+id/textViewFree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mark_pro"
+        style="@style/font_700_white"
+        android:textSize="15sp"
+        android:text="@string/free"
+        app:layout_constraintTop_toTopOf="@id/textViewDelivery"
+        app:layout_constraintBottom_toBottomOf="@id/textViewDelivery"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="76dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
