@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.top_of_home_layout.view.*
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
+    private lateinit var parentActivity: MainActivity
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -36,6 +37,11 @@ class HomeFragment : Fragment() {
                 ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         val navController = NavHostFragment.findNavController(this)
+        parentActivity = activity as MainActivity
+        if(parentActivity.bottomNavigationView?.visibility==View.GONE){
+        parentActivity.bottomNavigationView?.visibility=View.VISIBLE
+        }
+
         val spinnerGeo = root.spinnerGeo
         val adapterGeo = ArrayAdapter.createFromResource(requireContext(),R.array.testArrayForSpinner,R.layout.spinner_geo_item)
         spinnerGeo.adapter = adapterGeo
@@ -94,7 +100,7 @@ class HomeFragment : Fragment() {
                 val filterFragment = FilterFragment()
                 fragmentTransaction.add(R.id.frameLayout,filterFragment).commit()
 
-                val parentActivity = activity as MainActivity
+                //val parentActivity = activity as MainActivity
                 val bottomNavigationView = parentActivity.bottomNavigationView
                 bottomNavigationView?.visibility = View.GONE
 
@@ -110,6 +116,8 @@ class HomeFragment : Fragment() {
 
             }
         })
+
+
 
 
 
@@ -135,6 +143,7 @@ class HomeFragment : Fragment() {
         },{
             Log.d("TAG",it.message.toString())
         })
+        //todo: wrong place to download data. Need place where data do not destroy while fragment alive
 
     }
 }

@@ -47,6 +47,9 @@
 
 
             </action>
+            <action
+                android:id="@+id/action_navigation_home_to_navigation_cart"
+                app:destination="@id/navigation_cart" />
         </fragment>
 
         <fragment
@@ -84,6 +87,12 @@
                 app:argType="string"
                 app:nullable="false"/>
         </fragment>
+
+    <fragment
+        android:id="@+id/navigation_cart"
+        android:name="com.example.designfromfigma2.ui.cart.CartFragment"
+        android:label="Fragment Cart"
+        tools:layout="@layout/fragment_cart"/>
 
 
     </navigation>
