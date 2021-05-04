@@ -71,5 +71,8 @@
     <string name="label_add_to_cart">Add to Cart</string>
     <string name="add_address">Add address</string>
     <string name="my_cart">My Cart</string>
+    <string name="delivery">Delivery</string>
+    <string name="free">Free</string>
+    <string name="total">Total</string>
 
 </resources>

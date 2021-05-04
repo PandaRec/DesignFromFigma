@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle"
+    android:padding="1dp">
+    <solid android:color="@color/blue_counter_cart"/>
+    <corners android:radius="26dp"/>
+    <size
+        android:height="68dp"
+        android:width="26dp"/>
+</shape>

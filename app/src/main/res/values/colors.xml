@@ -18,4 +18,6 @@
     <color name="brown">#772D03</color>
     <color name="gray_details">#8D8D8D</color>
     <color name="gray_cart">#C4C4C4</color>
+    <color name="blue_counter_cart">#282843</color>
+    <color name="blue_line_cart">#404068</color>
 </resources>
