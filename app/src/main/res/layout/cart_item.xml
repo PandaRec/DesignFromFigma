@@ -69,6 +69,7 @@
         android:layout_marginEnd="17dp" />
 
     <View
+        android:id="@+id/minus"
         android:layout_width="9.29dp"
         android:layout_height="2dp"
         android:background="@drawable/ic_minus"
@@ -93,6 +94,7 @@
         app:layout_constraintEnd_toEndOf="@id/counter_rounded"/>
 
     <View
+        android:id="@+id/plus"
         android:layout_width="8.36dp"
         android:layout_height="9dp"
         android:background="@drawable/ic_plus"

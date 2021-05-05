@@ -11,6 +11,9 @@ import com.example.designfromfigma2.pojo.CartItem
 import kotlinx.android.synthetic.main.cart_item.view.*
 
 class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+    var onTrashClickListener:OnTrashClickListener?=null
+    var onMinusClickListener:OnMinusClickListener?=null
+    var onPlusClickListener:OnPlusClickListener?=null
      var cartItems = listOf<CartItem>()
     set(value) {
         field=value
@@ -39,7 +42,20 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
             textViewTitle.text = current.fullTitle
             textViewPrice.text = current.price
             counter.text = current.counter.toString()
+            itemView.iconTrash.setOnClickListener { onTrashClickListener?.onTrashClick()}
+            itemView.minus.setOnClickListener { onMinusClickListener?.onMinusClick() }
+            itemView.plus.setOnClickListener { onPlusClickListener?.onPlusClick() }
         }
 
+    }
+    interface OnTrashClickListener{
+        fun onTrashClick()
+    }
+
+    interface OnMinusClickListener{
+        fun onMinusClick()
+    }
+    interface OnPlusClickListener{
+        fun onPlusClick()
     }
 }

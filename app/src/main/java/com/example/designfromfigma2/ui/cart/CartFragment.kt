@@ -11,6 +11,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.designfromfigma2.R
 import com.example.designfromfigma2.adapters.CartAdapter
+import kotlinx.android.synthetic.main.cart_item.view.*
 import kotlinx.android.synthetic.main.fragment_cart.view.*
 import kotlinx.android.synthetic.main.top_of_cart_layout.view.*
 
@@ -28,6 +29,7 @@ class CartFragment: Fragment() {
         val navController = NavHostFragment.findNavController(this)
 
 
+
         root.roundedBack.setOnClickListener {
             navController.navigate(R.id.navigation_home)
         }
@@ -35,6 +37,37 @@ class CartFragment: Fragment() {
         val recyclerViewCart = root.recyclerViewCart
         val adapter = CartAdapter()
         initializeRecyclerViewCart(recyclerViewCart,adapter)
+
+        adapter.onTrashClickListener = object : CartAdapter.OnTrashClickListener{
+            override fun onTrashClick() {
+                Log.d("TAG","trash clicked")
+            }
+        }
+        adapter.onMinusClickListener = object : CartAdapter.OnMinusClickListener{
+            override fun onMinusClick() {
+                TODO("Not yet implemented")
+            }
+        }
+
+        adapter.onPlusClickListener = object :CartAdapter.OnPlusClickListener{
+            override fun onPlusClick() {
+                TODO("Not yet implemented")
+            }
+        }
+
+//        root.iconTrash.setOnClickListener {
+//            Log.d("TAG","click trash")
+//            //todo: delete from rest db by id
+//        }
+//        root.minus.setOnClickListener {
+//            textViewCount.text = (textViewCount.text.toString().toInt()-1).toString()
+//            //todo:delay on response
+//        }
+//
+//        root.plus.setOnClickListener {
+//            textViewCount.text = (textViewCount.text.toString().toInt()+1).toString()
+//            //todo:delay on response
+//        }
         return root
     }
 
