@@ -30,15 +30,15 @@ import java.lang.Math.abs
 class DetailsFragment: Fragment() {
     private lateinit var detailsViewModel: DetailsViewModel
     private val args by navArgs<DetailsFragmentArgs>()
-    private val myId by lazy { args.id }
-    private val title by lazy { args.title }
-    private val rating by lazy { args.rating }
-    private val processor by lazy { args.processor}
-    private val camera by lazy { args.camera }
-    private val ram by lazy { args.RAM }
-    private val rom by lazy { args.ROM }
-    private val price by lazy { args.price }
-    private val imageURL by lazy { args.imageURL }
+//    private val myId by lazy { args.id }
+//    private val title by lazy { args.title }
+//    private val rating by lazy { args.rating }
+//    private val processor by lazy { args.processor}
+//    private val camera by lazy { args.camera }
+//    private val ram by lazy { args.RAM }
+//    private val rom by lazy { args.ROM }
+//    private val price by lazy { args.price }
+//    private val imageURL by lazy { args.imageURL }
 
 
 
@@ -88,7 +88,12 @@ class DetailsFragment: Fragment() {
         updateUI(root)
 
         root.addToCard.setOnClickListener {
-            detailsViewModel.insertToCart(price,title,imageURL,myId,requireContext())
+            detailsViewModel.insertToCart(
+                    args.price,
+                    args.title,
+                    args.imageURL,
+                    args.id,
+                    requireContext())
 
         }
 
@@ -98,13 +103,13 @@ class DetailsFragment: Fragment() {
     }
 
     fun updateUI(view: View){
-       view.titleDetails.text = title
-       view.textViewProcessor.text = processor
-       view.textViewCamera.text = camera
-       view.textViewRAM.text = ram
-       view.textViewROM.text = rom
-       view.price.text = price
-       view.ratingBar.rating = rating.toFloat()
+       view.titleDetails.text = args.title
+       view.textViewProcessor.text = args.processor
+       view.textViewCamera.text = args.camera
+       view.textViewRAM.text = args.RAM
+       view.textViewROM.text = args.ROM
+       view.price.text = args.price
+       view.ratingBar.rating = args.rating.toFloat()
     }
 
 

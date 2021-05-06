@@ -7,15 +7,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.designfromfigma2.R
-import com.example.designfromfigma2.pojo.BestSellerMenu
 import com.example.designfromfigma2.pojo.CartItem
+import io.reactivex.subjects.BehaviorSubject
 import kotlinx.android.synthetic.main.cart_item.view.*
 
 class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
-    var onTrashClickListener:OnTrashClickListener?=null
-    var onMinusClickListener:OnMinusClickListener?=null
-    var onPlusClickListener:OnPlusClickListener?=null
-     var cartItems = listOf<CartItem>()
+    val BHTrash:BehaviorSubject<CartItem> = BehaviorSubject.create()
+    val BHMinus:BehaviorSubject<CartItem> = BehaviorSubject.create()
+    val BHPlus:BehaviorSubject<CartItem> = BehaviorSubject.create()
+
+    var cartItems = listOf<CartItem>()
     set(value) {
         field=value
         notifyDataSetChanged()
@@ -45,20 +46,11 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
             textViewTitle.text = current.fullTitle
             textViewPrice.text = current.price
             counter.text = current.counter.toString()
-            itemView.iconTrash.setOnClickListener { onTrashClickListener?.onTrashClick(current)}
-            itemView.minus.setOnClickListener { onMinusClickListener?.onMinusClick(current) }
-            itemView.plus.setOnClickListener { onPlusClickListener?.onPlusClick(current) }
+            itemView.iconTrash.setOnClickListener { BHTrash.onNext(current) }
+            itemView.minus.setOnClickListener{BHMinus.onNext(current)}
+            itemView.plus.setOnClickListener{BHPlus.onNext(current)}
         }
 
     }
-    interface OnTrashClickListener{
-        fun onTrashClick(item:CartItem)
-    }
 
-    interface OnMinusClickListener{
-        fun onMinusClick(item:CartItem)
-    }
-    interface OnPlusClickListener{
-        fun onPlusClick(item:CartItem)
-    }
 }

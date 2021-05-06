@@ -38,46 +38,43 @@ class CartFragment: Fragment() {
 
         initializeRecyclerViewCart(recyclerViewCart,adapter)
 
-        adapter.onTrashClickListener = object : CartAdapter.OnTrashClickListener{
-            override fun onTrashClick(item:CartItem) {
-                Log.d("TAG","trash clicked")
-                cartViewModel.deleteItemFromCart(item._id)
-                initializeRecyclerViewCart(recyclerViewCart,adapter)
-
-            }
+        var disp = adapter.BHTrash.subscribe {
+            cartViewModel.deleteItemFromCart(it._id)
+            initializeRecyclerViewCart(recyclerViewCart, adapter)
         }
-        adapter.onMinusClickListener = object : CartAdapter.OnMinusClickListener{
-            override fun onMinusClick(item:CartItem) {
-                val count = item.counter-1
+        compositeDisposable.add(disp)
 
-                cartViewModel.updateCartItem(
-                        item._id,
-                        item.price,
-                        item.fullTitle,
-                        item.image,
-                        item.id,
-                        count
-                )
-                initializeRecyclerViewCart(recyclerViewCart,adapter)
-            }
+        disp = adapter.BHMinus.subscribe {
+            val count = it.counter - 1
+
+            cartViewModel.updateCartItem(
+                    it._id,
+                    it.price,
+                    it.fullTitle,
+                    it.image,
+                    it.id,
+                    count
+            )
+            initializeRecyclerViewCart(recyclerViewCart, adapter)
         }
+        compositeDisposable.add(disp)
 
-        adapter.onPlusClickListener = object :CartAdapter.OnPlusClickListener{
-            override fun onPlusClick(item:CartItem) {
-                val count = item.counter+1
+        disp = adapter.BHPlus.subscribe {
+            val count = it.counter + 1
 
-                cartViewModel.updateCartItem(
-                        item._id,
-                        item.price,
-                        item.fullTitle,
-                        item.image,
-                        item.id,
-                        count
-                )
-                initializeRecyclerViewCart(recyclerViewCart,adapter)
-                adapter.notifyDataSetChanged()
-            }
+            cartViewModel.updateCartItem(
+                    it._id,
+                    it.price,
+                    it.fullTitle,
+                    it.image,
+                    it.id,
+                    count
+            )
+            initializeRecyclerViewCart(recyclerViewCart, adapter)
+            adapter.notifyDataSetChanged()
         }
+        compositeDisposable.add(disp)
+
 
         return root
     }
