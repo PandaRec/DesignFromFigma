@@ -1,5 +1,6 @@
 package com.example.designfromfigma2.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,7 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
     set(value) {
         field=value
         notifyDataSetChanged()
+        Log.d("TAG","updated")
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.cart_item,parent,false)
@@ -26,6 +28,7 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         val current = cartItems[position]
+        Log.d("TAGTEST",current.counter.toString())
         holder.updateUI(current)
     }
 
@@ -42,20 +45,20 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
             textViewTitle.text = current.fullTitle
             textViewPrice.text = current.price
             counter.text = current.counter.toString()
-            itemView.iconTrash.setOnClickListener { onTrashClickListener?.onTrashClick()}
-            itemView.minus.setOnClickListener { onMinusClickListener?.onMinusClick() }
-            itemView.plus.setOnClickListener { onPlusClickListener?.onPlusClick() }
+            itemView.iconTrash.setOnClickListener { onTrashClickListener?.onTrashClick(current)}
+            itemView.minus.setOnClickListener { onMinusClickListener?.onMinusClick(current) }
+            itemView.plus.setOnClickListener { onPlusClickListener?.onPlusClick(current) }
         }
 
     }
     interface OnTrashClickListener{
-        fun onTrashClick()
+        fun onTrashClick(item:CartItem)
     }
 
     interface OnMinusClickListener{
-        fun onMinusClick()
+        fun onMinusClick(item:CartItem)
     }
     interface OnPlusClickListener{
-        fun onPlusClick()
+        fun onPlusClick(item:CartItem)
     }
 }

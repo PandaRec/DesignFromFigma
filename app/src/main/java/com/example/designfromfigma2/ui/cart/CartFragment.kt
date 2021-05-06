@@ -11,6 +11,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.designfromfigma2.R
 import com.example.designfromfigma2.adapters.CartAdapter
+import com.example.designfromfigma2.pojo.CartItem
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.cart_item.view.*
 import kotlinx.android.synthetic.main.fragment_cart.view.*
 import kotlinx.android.synthetic.main.top_of_cart_layout.view.*
@@ -22,6 +24,7 @@ class CartFragment: Fragment() {
     //todo: add disposable and override onDestroy
 
     lateinit var cartViewModel: CartViewModel
+    private var compositeDisposable = CompositeDisposable()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         cartViewModel=
                 ViewModelProvider(this).get(CartViewModel::class.java)
@@ -36,49 +39,67 @@ class CartFragment: Fragment() {
 
         val recyclerViewCart = root.recyclerViewCart
         val adapter = CartAdapter()
+
         initializeRecyclerViewCart(recyclerViewCart,adapter)
 
         adapter.onTrashClickListener = object : CartAdapter.OnTrashClickListener{
-            override fun onTrashClick() {
+            override fun onTrashClick(item:CartItem) {
                 Log.d("TAG","trash clicked")
+                cartViewModel.deleteItemFromCart(item._id)
+                initializeRecyclerViewCart(recyclerViewCart,adapter)
+
             }
         }
         adapter.onMinusClickListener = object : CartAdapter.OnMinusClickListener{
-            override fun onMinusClick() {
-                TODO("Not yet implemented")
+            override fun onMinusClick(item:CartItem) {
+                val count = item.counter-1
+
+                cartViewModel.updateCartItem(
+                        item._id,
+                        item.price,
+                        item.fullTitle,
+                        item.image,
+                        item.id,
+                        count
+                )
+                initializeRecyclerViewCart(recyclerViewCart,adapter)
             }
         }
 
         adapter.onPlusClickListener = object :CartAdapter.OnPlusClickListener{
-            override fun onPlusClick() {
-                TODO("Not yet implemented")
+            override fun onPlusClick(item:CartItem) {
+                val count = item.counter+1
+
+                cartViewModel.updateCartItem(
+                        item._id,
+                        item.price,
+                        item.fullTitle,
+                        item.image,
+                        item.id,
+                        count
+                )
+                initializeRecyclerViewCart(recyclerViewCart,adapter)
+                adapter.notifyDataSetChanged()
             }
         }
 
-//        root.iconTrash.setOnClickListener {
-//            Log.d("TAG","click trash")
-//            //todo: delete from rest db by id
-//        }
-//        root.minus.setOnClickListener {
-//            textViewCount.text = (textViewCount.text.toString().toInt()-1).toString()
-//            //todo:delay on response
-//        }
-//
-//        root.plus.setOnClickListener {
-//            textViewCount.text = (textViewCount.text.toString().toInt()+1).toString()
-//            //todo:delay on response
-//        }
         return root
     }
 
     private fun initializeRecyclerViewCart(recyclerView:RecyclerView, adapter:CartAdapter ){
-        cartViewModel.getCart().subscribe({
+        val disp = cartViewModel.getCart().subscribe({
             recyclerView.adapter = adapter
             adapter.cartItems = it
         },{
             Log.d("TAG",it.message.toString())
         })
+        compositeDisposable.add(disp)
 
 
+    }
+
+    override fun onDestroy() {
+        compositeDisposable.dispose()
+        super.onDestroy()
     }
 }

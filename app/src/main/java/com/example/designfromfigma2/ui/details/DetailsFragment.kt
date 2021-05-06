@@ -40,6 +40,7 @@ class DetailsFragment: Fragment() {
     private val rom by lazy { args.ROM }
     private val price by lazy { args.price }
     private val imageURL by lazy { args.imageURL }
+    private val _id by lazy { args.Id }
 
 
 

@@ -48,6 +48,11 @@ data class BestSellerMenu (
 
     @SerializedName("rom")
     @Expose
-    var rom: String = ""
+    var rom: String = "",
+    @SerializedName("_id")
+    @Expose
+    var _id: String = ""
+
+
 
 )

@@ -79,6 +79,7 @@ class HomeFragment : Fragment() {
 
                 navController.navigate(HomeFragmentDirections.actionNavigationHomeToNavigationDetails(
                         current.id,
+                        current._id,
                     current.fullTitle,
                     current.rating,
                     current.processor,

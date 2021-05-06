@@ -19,4 +19,7 @@ data class CartItem(
         @SerializedName("counter")
         @Expose
         var counter: Int = 0,
+        @SerializedName("_id")
+        @Expose
+        var _id: String = ""
 )
