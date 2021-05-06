@@ -18,12 +18,15 @@ import com.example.designfromfigma2.adapters.BestSellerAdapter
 import com.example.designfromfigma2.adapters.CategoryAdapter
 import com.example.designfromfigma2.adapters.HotSaleAdapter
 import com.example.designfromfigma2.ui.filter.FilterFragment
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.android.synthetic.main.top_of_home_layout.view.*
 
 
 class HomeFragment : Fragment() {
+
+    private var compositeDisposable = CompositeDisposable()
 
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var parentActivity: MainActivity
@@ -79,7 +82,6 @@ class HomeFragment : Fragment() {
 
                 navController.navigate(HomeFragmentDirections.actionNavigationHomeToNavigationDetails(
                         current.id,
-                        current._id,
                     current.fullTitle,
                     current.rating,
                     current.processor,
@@ -140,16 +142,20 @@ class HomeFragment : Fragment() {
     }
 
     private fun initializeBestSeller(recyclerViewBestSaller: RecyclerView, adapterBestSeller:BestSellerAdapter){
-        homeViewModel.getPhones().subscribe({
+        val disp = homeViewModel.getPhones().subscribe({
             adapterBestSeller.someList = it
             recyclerViewBestSaller.layoutManager = GridLayoutManager(context,2)
             recyclerViewBestSaller.adapter = adapterBestSeller
         },{
             Log.d("TAG",it.message.toString())
         })
-        //todo: wrong place to download data. Need place where data do not destroy while fragment alive
+        compositeDisposable.add(disp)
         //todo: add compositeDisposable and override onDestroy
 
     }
 
+    override fun onDestroy() {
+        compositeDisposable.dispose()
+        super.onDestroy()
+    }
 }

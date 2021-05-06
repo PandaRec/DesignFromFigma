@@ -18,10 +18,6 @@ import kotlinx.android.synthetic.main.fragment_cart.view.*
 import kotlinx.android.synthetic.main.top_of_cart_layout.view.*
 
 class CartFragment: Fragment() {
-    //todo: trash
-    //todo: minus, plus
-    //todo: recalculate total
-    //todo: add disposable and override onDestroy
 
     lateinit var cartViewModel: CartViewModel
     private var compositeDisposable = CompositeDisposable()

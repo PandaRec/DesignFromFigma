@@ -16,10 +16,7 @@
                 android:name="id"
                 app:argType="integer"
                 app:nullable="false"/>
-            <argument
-                android:name="_id"
-                app:argType="string"
-                app:nullable="false"/>
+
             <argument
                 android:name="title"
                 app:argType="string"
@@ -72,10 +69,6 @@
             <argument
                 android:name="id"
                 app:argType="integer"
-                app:nullable="false"/>
-            <argument
-                android:name="_id"
-                app:argType="string"
                 app:nullable="false"/>
 
             <argument

@@ -28,7 +28,6 @@ import retrofit2.Response
 import java.lang.Math.abs
 
 class DetailsFragment: Fragment() {
-    //todo: add to card
     private lateinit var detailsViewModel: DetailsViewModel
     private val args by navArgs<DetailsFragmentArgs>()
     private val myId by lazy { args.id }
@@ -40,7 +39,6 @@ class DetailsFragment: Fragment() {
     private val rom by lazy { args.ROM }
     private val price by lazy { args.price }
     private val imageURL by lazy { args.imageURL }
-    private val _id by lazy { args.Id }
 
 
 
