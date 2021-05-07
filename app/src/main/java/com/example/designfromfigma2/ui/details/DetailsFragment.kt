@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.annotation.DimenRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
@@ -30,15 +31,7 @@ import java.lang.Math.abs
 class DetailsFragment: Fragment() {
     private lateinit var detailsViewModel: DetailsViewModel
     private val args by navArgs<DetailsFragmentArgs>()
-//    private val myId by lazy { args.id }
-//    private val title by lazy { args.title }
-//    private val rating by lazy { args.rating }
-//    private val processor by lazy { args.processor}
-//    private val camera by lazy { args.camera }
-//    private val ram by lazy { args.RAM }
-//    private val rom by lazy { args.ROM }
-//    private val price by lazy { args.price }
-//    private val imageURL by lazy { args.imageURL }
+
 
 
 
@@ -50,6 +43,7 @@ class DetailsFragment: Fragment() {
         detailsViewModel =
             ViewModelProvider(this).get(DetailsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_details, container, false)
+        val navController = NavHostFragment.findNavController(this)
 
         val viewPager = root.viewPager
         val detailsViewPagerAdapter = DetailsViewPagerAdapter()
@@ -94,6 +88,11 @@ class DetailsFragment: Fragment() {
                     args.imageURL,
                     args.id,
                     requireContext())
+
+        }
+
+        root.back.setOnClickListener {
+            navController.navigate(R.id.navigation_home)
 
         }
 

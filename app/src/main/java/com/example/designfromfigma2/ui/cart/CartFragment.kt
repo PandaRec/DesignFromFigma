@@ -83,6 +83,7 @@ class CartFragment: Fragment() {
         val disp = cartViewModel.getCart().subscribe({
             recyclerView.adapter = adapter
             adapter.cartItems = it
+            adapter.notifyDataSetChanged()
         },{
             Log.d("TAG",it.message.toString())
         })
