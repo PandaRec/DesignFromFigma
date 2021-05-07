@@ -39,4 +39,11 @@ interface ApiFactory {
             @Path("idToFind") idToDelete: String,
 
             ):Call<CartItem>
+
+    @PATCH("phones/{idToFind}")
+    @FormUrlEncoded
+    fun updateLikeInPhone(
+            @Path("idToFind") idToFind:String,
+            @Field("isLiked") isLiked:Boolean
+    ):Call<BestSellerMenu>
 }

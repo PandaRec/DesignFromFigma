@@ -76,7 +76,7 @@ class HomeFragment : Fragment() {
         initializeBestSeller(recyclerViewBestSaller,adapterBestSeller)
 
 
-        val disp = adapterBestSeller.BHItem.subscribe{
+        var disp = adapterBestSeller.BHItem.subscribe{
             val current = adapterBestSeller.someList[it]
 
             navController.navigate(HomeFragmentDirections.actionNavigationHomeToNavigationDetails(
@@ -92,6 +92,16 @@ class HomeFragment : Fragment() {
 
             )
             )
+        }
+        compositeDisposable.add(disp)
+
+        disp = adapterBestSeller.BHLike.subscribe{
+            if(it.isIsLiked){
+                homeViewModel.updateLikeInPhone(it._id,false)
+            }else{
+                homeViewModel.updateLikeInPhone(it._id,true)
+            }
+            initializeBestSeller(recyclerViewBestSaller, adapterBestSeller)
         }
         compositeDisposable.add(disp)
 

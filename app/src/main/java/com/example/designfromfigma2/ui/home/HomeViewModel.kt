@@ -9,6 +9,10 @@ import com.example.designfromfigma2.pojo.CategoryItemMenu
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class HomeViewModel : ViewModel() {
 
@@ -37,6 +41,22 @@ class HomeViewModel : ViewModel() {
         return ApiService.api.getPhones()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+    }
+
+    fun updateLikeInPhone(_id:String,isLiked:Boolean){
+        ApiService.api.updateLikeInPhone(_id,isLiked).enqueue(object :Callback<BestSellerMenu>{
+            override fun onResponse(call: Call<BestSellerMenu>, response: Response<BestSellerMenu>) {
+                if (response.isSuccessful) {
+
+                    Log.i("TAG2", "patch result" + response.body()!!.toString())
+
+                }
+            }
+
+            override fun onFailure(call: Call<BestSellerMenu>, t: Throwable) {
+                Log.d("TAG2","update like error: ${t.message.toString()}")
+            }
+        })
     }
 
 

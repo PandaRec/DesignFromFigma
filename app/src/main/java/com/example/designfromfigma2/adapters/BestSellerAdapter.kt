@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.best_seller_item.view.*
 
 class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewHolder>() {
     val BHItem:BehaviorSubject<Int> = BehaviorSubject.create()
+    val BHLike: BehaviorSubject<BestSellerMenu> = BehaviorSubject.create()
     var someList = listOf<BestSellerMenu>()
     set(value) {
         field = value
@@ -28,6 +29,7 @@ class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewH
         val current = someList[position]
         holder.itemView.setOnClickListener { BHItem.onNext(position) }
         holder.insertToUI(current)
+        //holder.addListener(current)
         Log.d("TAG","insert invoke")
         Log.d("TAG","list size ${someList.size}")
 
@@ -43,7 +45,10 @@ class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewH
         val textViewTitle = itemView.textViewFullTitle
         val imageViewLike = itemView.imageViewLike
 
+
         fun insertToUI(bestSeller: BestSellerMenu){
+            imageViewLike.setOnClickListener { BHLike.onNext(bestSeller) }
+
             Log.d("TAG","--->${bestSeller.fullTitle}")
             Glide.with(itemView).load(bestSeller.image).into(imageViewMain)
             textViewTitle.text = bestSeller.fullTitle
@@ -59,6 +64,9 @@ class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewH
 
             }
         }
+//        fun addListener(bestSellerMenu: BestSellerMenu){
+//            BHLike.onNext(bestSellerMenu)
+//        }
     }
 
 }
