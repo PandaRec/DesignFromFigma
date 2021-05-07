@@ -76,12 +76,11 @@ class HomeFragment : Fragment() {
         initializeBestSeller(recyclerViewBestSaller,adapterBestSeller)
 
 
-        adapterBestSeller.onItemClickListener =object :BestSellerAdapter.OnItemClickListener{
-            override fun onItemClick(position: Int) {
-                val current = adapterBestSeller.someList[position]
+        val disp = adapterBestSeller.BHItem.subscribe{
+            val current = adapterBestSeller.someList[it]
 
-                navController.navigate(HomeFragmentDirections.actionNavigationHomeToNavigationDetails(
-                        current.id,
+            navController.navigate(HomeFragmentDirections.actionNavigationHomeToNavigationDetails(
+                    current.id,
                     current.fullTitle,
                     current.rating,
                     current.processor,
@@ -89,39 +88,33 @@ class HomeFragment : Fragment() {
                     current.ram,
                     current.rom,
                     current.price,
-                        current.image
+                    current.image
 
-                )
-                )
-
-            }
+            )
+            )
         }
+        compositeDisposable.add(disp)
 
-        root.ic_filter.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(v: View?) {
+        root.ic_filter.setOnClickListener {
+            val fragmentManager = childFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
 
-                val fragmentManager = childFragmentManager
-                val fragmentTransaction = fragmentManager.beginTransaction()
+            val filterFragment = FilterFragment()
+            fragmentTransaction.add(R.id.frameLayout, filterFragment).commit()
 
-                val filterFragment = FilterFragment()
-                fragmentTransaction.add(R.id.frameLayout,filterFragment).commit()
+            val bottomNavigationView = parentActivity.bottomNavigationView
+            bottomNavigationView?.visibility = View.GONE
 
-                //val parentActivity = activity as MainActivity
-                val bottomNavigationView = parentActivity.bottomNavigationView
-                bottomNavigationView?.visibility = View.GONE
+            val bot = recyclerViewHotSale.bottom
 
-                val bot = recyclerViewHotSale.bottom
-
-                frameLayout.startAnimation(TranslateAnimation(0f, 0f,
+            frameLayout.startAnimation(TranslateAnimation(0f, 0f,
                     bot.toFloat(), 0f)
                     .apply {
                         duration = 2000
                     })
 
-                frameLayout.visibility = View.VISIBLE
-
-            }
-        })
+            frameLayout.visibility = View.VISIBLE
+        }
 
 
 
